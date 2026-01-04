@@ -9,19 +9,20 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;0,6..96,900;1,6..96,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cinzel:wght@400;700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        cardBlueLight: '#E6F3FF', // Card ka Light Blue Background
-                        cardBlueDark: '#003366',  // Card ka Dark Blue Text
-                        accentGold: '#D4AF37',    // Thoda Gold touch luxury ke liye
+                        cardBlueLight: '#E6F3FF', 
+                        cardBlueDark: '#003366',  
+                        accentGold: '#D4AF37',    
                     },
                     fontFamily: {
-                        serif: ['Bodoni Moda', 'serif'],
+                        logo: ['Cinzel', 'serif'],       /* For Bharat Bakers Title */
+                        heading: ['Abril Fatface', 'cursive'], /* For Bake Art, Curated Items */
                         sans: ['DM Sans', 'sans-serif'],
                     },
                     animation: {
@@ -40,13 +41,12 @@
 
     <style>
         body {
-            /* Business Card wala Light Blue Background */
             background-color: #E6F3FF; 
             color: #003366;
             overflow-x: hidden;
         }
 
-        /* The Rotating Background Element */
+        /* Background Image - Set to PNG */
         #rotating-bg {
             position: fixed;
             top: 50%;
@@ -61,7 +61,6 @@
             pointer-events: none;
         }
 
-        /* Button Hover */
         .btn-hover {
             transition: all 0.3s ease;
         }
@@ -78,24 +77,24 @@
     <img id="rotating-bg" src="cake-stand.png" alt="Rotating Cake Stand">
 
     <nav class="fixed top-6 left-0 w-full z-50 flex justify-center px-4">
-        <div class="bg-white/90 backdrop-blur-md border border-cardBlueDark/20 shadow-xl rounded-full px-10 py-4 flex items-center justify-between gap-6 w-full max-w-4xl">
+        <div class="bg-white/90 backdrop-blur-md border border-cardBlueDark/20 shadow-xl rounded-full px-8 py-3 flex items-center gap-8 w-max">
             
-            <a href="#home" class="font-sans font-bold text-sm tracking-widest uppercase hover:text-accentGold transition whitespace-nowrap">Home</a>
+            <a href="#home" class="font-sans font-bold text-xs md:text-sm tracking-widest uppercase hover:text-accentGold transition whitespace-nowrap">Home</a>
             
-            <div class="flex flex-col items-center text-center">
-                <h1 class="font-serif text-2xl md:text-3xl font-black leading-none text-cardBlueDark tracking-tight whitespace-nowrap">
+            <div class="flex flex-col items-center text-center px-2">
+                <h1 class="font-logo text-xl md:text-2xl font-black leading-none text-cardBlueDark tracking-wide whitespace-nowrap">
                     BHARAT BAKERS
                 </h1>
-                <span class="text-[0.65rem] font-bold tracking-[0.3em] uppercase text-accentGold mt-1">
+                <span class="text-[0.6rem] font-bold tracking-[0.3em] uppercase text-accentGold mt-0.5">
                     NEEDS & MORE
                 </span>
             </div>
 
-            <a href="#contact" class="font-sans font-bold text-sm tracking-widest uppercase hover:text-accentGold transition whitespace-nowrap">Contact</a>
+            <a href="#contact" class="font-sans font-bold text-xs md:text-sm tracking-widest uppercase hover:text-accentGold transition whitespace-nowrap">Contact</a>
         </div>
     </nav>
 
-    <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-28 relative">
+    <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24 relative">
         
         <div class="relative z-10 max-w-5xl">
             <div class="inline-flex items-center gap-2 border border-cardBlueDark/20 rounded-full px-4 py-1 mb-8 bg-white/50 backdrop-blur-sm">
@@ -103,8 +102,8 @@
                 <span class="text-xs font-bold tracking-widest uppercase text-cardBlueDark">Satara's No.1 Bakery Supplier</span>
             </div>
 
-            <h1 class="font-serif font-black text-6xl md:text-8xl lg:text-9xl text-cardBlueDark mb-6 leading-[0.9]">
-                Bake <br> <span class="italic text-accentGold font-serif">Art.</span>
+            <h1 class="font-heading text-6xl md:text-8xl lg:text-9xl text-cardBlueDark mb-6 leading-[0.9]">
+                Bake <br> <span class="text-accentGold">Art.</span>
             </h1>
 
             <p class="font-sans text-lg md:text-xl text-cardBlueDark/80 font-medium max-w-lg mx-auto mb-10 leading-relaxed bg-white/40 backdrop-blur-sm p-4 rounded-xl border border-white/50">
@@ -123,7 +122,7 @@
     </section>
 
     <div class="bg-cardBlueDark text-white py-4 overflow-hidden border-y border-white/10 rotate-1 shadow-lg relative z-20 mt-10 mb-20">
-        <div class="whitespace-nowrap animate-marquee flex gap-12 font-serif italic text-2xl md:text-3xl">
+        <div class="whitespace-nowrap animate-marquee flex gap-12 font-heading text-2xl md:text-3xl tracking-wider">
             <span>Party Decorations</span> • <span>Fancy Cake Stands</span> • <span>Chocolate Boxes</span> • <span>Toppers</span> • 
             <span>Party Decorations</span> • <span>Fancy Cake Stands</span> • <span>Chocolate Boxes</span> • <span>Toppers</span> •
             <span>Party Decorations</span> • <span>Fancy Cake Stands</span> • <span>Chocolate Boxes</span> • <span>Toppers</span> •
@@ -133,8 +132,8 @@
     <section id="products" class="py-10 px-4 md:px-10 max-w-7xl mx-auto">
         <div class="flex flex-col md:flex-row justify-between items-end mb-12">
             <div>
-                <h2 class="font-serif font-black text-5xl md:text-6xl text-cardBlueDark">
-                    Curated <span class="italic text-accentGold font-serif">Items</span>
+                <h2 class="font-heading text-5xl md:text-6xl text-cardBlueDark">
+                    Curated <span class="text-accentGold">Items</span>
                 </h2>
             </div>
             <p class="text-cardBlueDark/80 font-bold max-w-xs text-right mt-4 md:mt-0">
@@ -149,14 +148,14 @@
                 <div class="mt-10 h-40 md:h-64 w-full bg-cardBlueLight rounded-xl mb-6 overflow-hidden">
                     <img src="stand.jpg" alt="Luxury Cake Stand" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
                 </div>
-                <h3 class="font-serif text-3xl mb-2 font-bold text-cardBlueDark">Fancy Stands</h3>
+                <h3 class="font-heading text-3xl mb-2 text-cardBlueDark tracking-wide">Fancy Stands</h3>
                 <p class="text-gray-600 mb-6 font-sans">Rotating tiers, crystal & acrylic stands used for heavy cakes.</p>
                 <a href="#contact" class="inline-block border-b border-cardBlueDark pb-1 font-bold hover:text-accentGold transition">Check Prices</a>
             </div>
 
             <div class="md:col-span-2 bg-cardBlueDark rounded-[2rem] p-8 shadow-xl text-white relative overflow-hidden group btn-hover flex flex-col md:flex-row items-center gap-6">
                 <div class="flex-1 z-10">
-                    <h3 class="font-serif text-3xl mb-2 font-bold">Chocolate & Boxes</h3>
+                    <h3 class="font-heading text-3xl mb-2 tracking-wide">Chocolate & Boxes</h3>
                     <p class="text-blue-100 mb-6 font-sans">Chocolate making materials, silicone molds, and premium gift boxes.</p>
                     <a href="#contact" class="bg-white text-cardBlueDark px-6 py-2 rounded-full font-bold text-sm hover:bg-accentGold hover:text-white transition">Enquire Now</a>
                 </div>
@@ -169,7 +168,7 @@
                 <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-cardBlueDark text-xl mb-4">
                     <i class="fa-solid fa-cake-candles"></i>
                 </div>
-                <h3 class="font-serif text-xl font-bold text-cardBlueDark">Cake Decor</h3>
+                <h3 class="font-heading text-xl text-cardBlueDark tracking-wide">Cake Decor</h3>
                 <p class="text-sm text-gray-600 mt-2 font-sans">Decorating materials, fondant tools, nozzles & turntables.</p>
             </div>
 
@@ -177,7 +176,7 @@
                 <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-accentGold text-xl mb-4">
                     <i class="fa-solid fa-gifts"></i>
                 </div>
-                <h3 class="font-serif text-xl font-bold text-cardBlueDark">Party Items</h3>
+                <h3 class="font-heading text-xl text-cardBlueDark tracking-wide">Party Items</h3>
                 <p class="text-sm text-gray-600 mt-2 font-sans">Decoration materials, banners, lights & poppers.</p>
             </div>
 
@@ -190,8 +189,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
                 
                 <div>
-                    <h2 class="font-serif font-black text-4xl md:text-5xl mb-6 text-cardBlueDark">
-                        Visit <span class="text-accentGold italic font-serif">Us.</span>
+                    <h2 class="font-heading text-4xl md:text-5xl mb-6 text-cardBlueDark">
+                        Visit <span class="text-accentGold">Us.</span>
                     </h2>
                     
                     <div class="space-y-6">
@@ -225,10 +224,10 @@
 
                 <div class="bg-cardBlueLight/50 p-6 rounded-3xl">
                     <form action="https://formsubmit.co/saadbagwan4949@gmail.com" method="POST" class="space-y-4">
-                        
                         <input type="hidden" name="_subject" value="New Enquiry for Bharat Bakers">
                         <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html"> <div>
+                        
+                        <div>
                             <label class="block text-xs font-bold uppercase text-cardBlueDark mb-1 ml-2">Your Name</label>
                             <input type="text" name="name" required placeholder="John Doe" class="w-full bg-white border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-cardBlueDark outline-none font-sans text-cardBlueDark placeholder-cardBlueDark/40 shadow-sm">
                         </div>
@@ -240,7 +239,7 @@
                         
                         <div>
                             <label class="block text-xs font-bold uppercase text-cardBlueDark mb-1 ml-2">Requirement</label>
-                            <textarea name="message" rows="3" required placeholder="I need price for Cake Stands..." class="w-full bg-white border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-cardBlueDark outline-none font-sans text-cardBlueDark placeholder-cardBlueDark/40 shadow-sm"></textarea>
+                            <textarea name="message" rows="3" required placeholder="I need price for..." class="w-full bg-white border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-cardBlueDark outline-none font-sans text-cardBlueDark placeholder-cardBlueDark/40 shadow-sm"></textarea>
                         </div>
                         
                         <button type="submit" class="w-full bg-cardBlueDark text-white font-bold py-4 rounded-2xl hover:bg-accentGold transition shadow-lg mt-2">
@@ -254,7 +253,7 @@
     </section>
 
     <footer class="text-center py-10 opacity-70">
-        <p class="font-serif text-cardBlueDark text-sm font-bold">© 2026 Bharat Bakers Needs & More. Satara.</p>
+        <p class="font-sans text-cardBlueDark text-sm font-bold">© 2026 Bharat Bakers Needs & More. Satara.</p>
     </footer>
 
     <script>

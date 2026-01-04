@@ -3,186 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bharat Bakers Needs & More - Satara</title>
+    <title>Bharat Bakers - Premium Cake Supplies</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brandBlue: '#1e3a8a', // Dark Blue from text
-                        brandLight: '#e0f2fe', // Light Blue from background
-                        brandAccent: '#d97706', // Gold/Yellowish accent
+                        deepBlue: '#1e3a8a', 
+                        gold: '#d97706',
+                        glass: 'rgba(255, 255, 255, 0.85)',
                     },
                     fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
                         sans: ['Poppins', 'sans-serif'],
-                        cursive: ['Great Vibes', 'cursive'],
                     }
                 }
             }
         }
     </script>
     <style>
-        .hero-pattern {
-            background-color: #e0f2fe;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23bfdbfe' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        body {
+            background-color: #f0f9ff;
+            overflow-x: hidden;
+        }
+        
+        /* The Rotating Background Element */
+        #rotating-bg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 800px;
+            height: 800px;
+            transform: translate(-50%, -50%);
+            z-index: -1; /* Text ke piche rahega */
+            opacity: 0.15; /* Thoda halka dikhega taaki text padha jaye */
+            transition: transform 0.1s linear;
+            pointer-events: none;
+        }
+
+        /* Glassmorphism Card Style */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
     </style>
 </head>
-<body class="font-sans text-brandBlue bg-brandLight">
+<body class="font-sans text-gray-800">
 
-    <nav class="bg-white shadow-md sticky top-0 z-50">
+    <img id="rotating-bg" src="https://cdn-icons-png.flaticon.com/512/114/114757.png" alt="Rotating Cake Decor">
+
+    <nav class="fixed w-full z-50 transition-all duration-300 glass-card" id="navbar">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold flex items-center gap-2">
-                <i class="fa-solid fa-cake-candles text-brandAccent"></i>
-                <span class="font-cursive text-4xl">Bharat Bakers</span>
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-deepBlue text-white rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-crown"></i>
+                </div>
+                <div>
+                    <h1 class="font-serif text-2xl font-bold text-deepBlue leading-none">Bharat Bakers</h1>
+                    <p class="text-xs text-gold font-bold tracking-widest">NEEDS & MORE</p>
+                </div>
             </div>
-            <div class="hidden md:flex space-x-8 font-semibold">
-                <a href="#home" class="hover:text-brandAccent transition">Home</a>
-                <a href="#products" class="hover:text-brandAccent transition">Products</a>
-                <a href="#contact" class="hover:text-brandAccent transition">Contact</a>
-            </div>
-            <button class="md:hidden text-2xl"><i class="fa-solid fa-bars"></i></button>
+            <a href="tel:9420487398" class="bg-deepBlue text-white px-5 py-2 rounded-full font-semibold hover:bg-gold transition shadow-lg animate-bounce">
+                <i class="fa-solid fa-phone mr-2"></i> Call Now
+            </a>
         </div>
     </nav>
 
-    <header id="home" class="hero-pattern py-20 px-6">
-        <div class="container mx-auto flex flex-col-reverse md:flex-row items-center gap-10">
-            <div class="md:w-1/2 text-center md:text-left">
-                <h1 class="text-5xl md:text-6xl font-cursive font-bold mb-4 text-brandBlue">Need & More...</h1>
-                <h2 class="text-2xl md:text-3xl font-semibold mb-6">Make Your Celebrations Special!</h2>
-                <p class="text-lg mb-8 text-gray-700">One-stop shop for all Cake Decorating Materials, Party Items & Chocolate Making Supplies in Satara.</p>
-                <a href="#contact" class="bg-brandBlue text-white px-8 py-3 rounded-full font-bold hover:bg-brandAccent transition shadow-lg">Order Now</a>
+    <section class="min-h-screen flex items-center justify-center pt-20 px-6">
+        <div class="text-center max-w-4xl">
+            <p class="text-gold font-bold tracking-widest mb-4 uppercase">Welcome to Satara's Finest</p>
+            <h1 class="font-serif text-5xl md:text-7xl font-bold text-deepBlue mb-6 text-shadow leading-tight">
+                Make Your Cake <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-deepBlue to-gold">Look Magical</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Party Decorations, Fancy Cake Stands, Toppers, and Premium Chocolate Making Materials.
+            </p>
+            
+            <div class="inline-block glass-card px-8 py-4 rounded-full border-l-4 border-gold mb-10">
+                <p class="text-sm text-gray-500 uppercase tracking-wide">Managed By</p>
+                <p class="text-xl font-serif font-bold text-deepBlue">Aslam Bhai & Saad</p>
             </div>
-            <div class="md:w-1/2">
-                <img src="https://placehold.co/600x400/1e3a8a/FFF?text=Hero+Image+(Cake+Display)" alt="Bharat Bakers Display" class="rounded-2xl shadow-2xl w-full object-cover transform rotate-2 hover:rotate-0 transition duration-500">
+
+            <div class="flex justify-center gap-4">
+                <a href="#products" class="bg-deepBlue text-white px-8 py-3 rounded-lg font-bold hover:bg-gold transition shadow-xl">
+                    View Products
+                </a>
+                <a href="#contact" class="bg-white text-deepBlue border border-deepBlue px-8 py-3 rounded-lg font-bold hover:bg-blue-50 transition">
+                    Contact Us
+                </a>
             </div>
         </div>
-    </header>
+    </section>
 
-    <section id="products" class="py-20 bg-white">
+    <section id="products" class="py-20">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-brandBlue mb-4">Our Collection</h2>
-                <div class="w-24 h-1 bg-brandAccent mx-auto rounded"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-brandLight p-6 rounded-xl shadow-lg hover:-translate-y-2 transition duration-300 text-center border border-blue-100">
-                    <div class="h-40 bg-white rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                        <img src="https://placehold.co/300x200/e0f2fe/1e3a8a?text=Party+Decor" alt="Party Decoration" class="w-full h-full object-cover">
+            <h2 class="text-4xl font-serif font-bold text-center text-deepBlue mb-16">Our Premium Collection</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glass-card p-8 rounded-2xl hover:scale-105 transition duration-300 flex items-center gap-6">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-3xl text-deepBlue flex-shrink-0">
+                        <i class="fa-solid fa-cake-candles"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Party Decorations</h3>
-                    <p class="text-sm text-gray-600">Balloons, banners, and everything to light up your event.</p>
+                    <div>
+                        <h3 class="text-2xl font-bold text-deepBlue">Cake Decorating</h3>
+                        <p class="text-gray-600 mt-2">Professional tools, nozzles, turntables, and edible art supplies.</p>
+                    </div>
                 </div>
 
-                <div class="bg-brandLight p-6 rounded-xl shadow-lg hover:-translate-y-2 transition duration-300 text-center border border-blue-100">
-                    <div class="h-40 bg-white rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                        <img src="https://placehold.co/300x200/e0f2fe/1e3a8a?text=Cake+Decor" alt="Cake Material" class="w-full h-full object-cover">
+                <div class="glass-card p-8 rounded-2xl hover:scale-105 transition duration-300 flex items-center gap-6">
+                    <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center text-3xl text-gold flex-shrink-0">
+                        <i class="fa-solid fa-gifts"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Cake Decorating</h3>
-                    <p class="text-sm text-gray-600">Professional tools and edible materials for cake art.</p>
+                    <div>
+                        <h3 class="text-2xl font-bold text-deepBlue">Party Items</h3>
+                        <p class="text-gray-600 mt-2">Theme balloons, banners, party poppers, and event decorations.</p>
+                    </div>
                 </div>
 
-                <div class="bg-brandLight p-6 rounded-xl shadow-lg hover:-translate-y-2 transition duration-300 text-center border border-blue-100">
-                    <div class="h-40 bg-white rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                        <img src="https://placehold.co/300x200/e0f2fe/1e3a8a?text=Stands+%26+Toppers" alt="Cake Stands" class="w-full h-full object-cover">
+                <div class="glass-card p-8 rounded-2xl hover:scale-105 transition duration-300 flex items-center gap-6">
+                    <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center text-3xl text-purple-600 flex-shrink-0">
+                        <i class="fa-solid fa-layer-group"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Stands & Toppers</h3>
-                    <p class="text-sm text-gray-600">Fancy cake stands and creative toppers for every occasion.</p>
+                    <div>
+                        <h3 class="text-2xl font-bold text-deepBlue">Fancy Stands</h3>
+                        <p class="text-gray-600 mt-2">Imported crystal stands, rotating tiers, and acrylic toppers.</p>
+                    </div>
                 </div>
 
-                <div class="bg-brandLight p-6 rounded-xl shadow-lg hover:-translate-y-2 transition duration-300 text-center border border-blue-100">
-                    <div class="h-40 bg-white rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                        <img src="https://placehold.co/300x200/e0f2fe/1e3a8a?text=Choco+Materials" alt="Chocolate Material" class="w-full h-full object-cover">
+                <div class="glass-card p-8 rounded-2xl hover:scale-105 transition duration-300 flex items-center gap-6">
+                    <div class="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center text-3xl text-amber-800 flex-shrink-0">
+                        <i class="fa-solid fa-cookie-bite"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Chocolate Making</h3>
-                    <p class="text-sm text-gray-600">Raw materials, molds, and premium boxes for chocolates.</p>
+                    <div>
+                        <h3 class="text-2xl font-bold text-deepBlue">Chocolate Material</h3>
+                        <p class="text-gray-600 mt-2">Compounds, molds, wrapping papers, and gift boxes.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-20 bg-brandBlue text-white relative">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row gap-12 items-center">
-            
-            <div class="md:w-1/2">
-                <h2 class="text-4xl font-bold mb-6">Get In Touch</h2>
-                <p class="mb-8 text-blue-100">Planning a party or baking a masterpiece? Contact us for the best supplies in Satara.</p>
+    <footer id="contact" class="bg-deepBlue text-white py-16 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-gold to-deepBlue"></div>
+        
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-2xl mx-auto glass-card bg-white/10 p-8 rounded-2xl border-none">
+                <h2 class="text-3xl font-serif font-bold mb-6">Visit Our Store</h2>
                 
-                <div class="space-y-4">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-white text-brandBlue rounded-full flex items-center justify-center text-xl">
-                            <i class="fa-solid fa-user"></i>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-location-dot text-gold text-2xl"></i>
+                        <div class="text-left">
+                            <p class="font-bold">G.S. Tower</p>
+                            <p class="text-blue-200 text-sm">Radhika Road, Satara</p>
                         </div>
-                        <div>
-                            <p class="font-bold">Aslam Bhai & Saad</p>
-                            <p class="text-sm text-blue-200">Owners</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-phone text-gold text-2xl"></i>
+                        <div class="text-left">
+                            <p class="font-bold">Contact Us</p>
+                            <a href="tel:9420487398" class="text-blue-200 text-sm block">9420487398</a>
+                            <a href="tel:8087359298" class="text-blue-200 text-sm block">8087359298</a>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="md:w-1/2 bg-white text-brandBlue p-8 rounded-2xl shadow-2xl w-full">
-                <h3 class="text-2xl font-bold mb-6 text-center">Send an Enquiry</h3>
-                <form>
-                    <div class="mb-4">
-                        <label class="block text-sm font-bold mb-2">Your Name</label>
-                        <input type="text" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-brandAccent bg-gray-50" placeholder="John Doe">
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-sm font-bold mb-2">Phone Number</label>
-                        <input type="tel" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-brandAccent bg-gray-50" placeholder="+91 98765 43210">
-                    </div>
-                    <div class="mb-6">
-                        <label class="block text-sm font-bold mb-2">Message / Requirement</label>
-                        <textarea class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-brandAccent bg-gray-50" rows="3" placeholder="I need cake boxes..."></textarea>
-                    </div>
-                    <button class="w-full bg-brandAccent text-white font-bold py-3 rounded-lg hover:bg-orange-700 transition">Send Message</button>
-                </form>
+                <a href="https://maps.google.com/?q=Radhika+Road+Satara" target="_blank" class="inline-block bg-white text-deepBlue px-8 py-3 rounded-full font-bold hover:bg-gold hover:text-white transition">
+                    Open in Google Maps
+                </a>
             </div>
-        </div>
-    </section>
-
-    <footer class="bg-gray-900 text-white py-12 border-t-4 border-brandAccent">
-        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
             
-            <div>
-                <h2 class="text-3xl font-cursive mb-4 text-brandAccent">Bharat Bakers</h2>
-                <p class="text-gray-400 text-sm">Your trusted partner for all bakery and party needs in Satara.</p>
-            </div>
-
-            <div>
-                <h3 class="text-xl font-bold mb-4">Visit Us</h3>
-                <p class="flex items-start justify-center md:justify-start gap-3 text-gray-300">
-                    <i class="fa-solid fa-location-dot mt-1 text-brandAccent"></i>
-                    <span>
-                        G.S. Tower,<br>
-                        Radhika Road,<br>
-                        Satara.
-                    </span>
-                </p>
-            </div>
-
-            <div>
-                <h3 class="text-xl font-bold mb-4">Call Us</h3>
-                <div class="flex flex-col gap-2">
-                    <a href="tel:9420487398" class="text-gray-300 hover:text-white transition flex items-center justify-center md:justify-start gap-2">
-                        <i class="fa-solid fa-phone text-brandAccent"></i> 9420487398
-                    </a>
-                    <a href="tel:8087359298" class="text-gray-300 hover:text-white transition flex items-center justify-center md:justify-start gap-2">
-                        <i class="fa-solid fa-phone text-brandAccent"></i> 8087359298
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="text-center mt-12 pt-8 border-t border-gray-800 text-gray-500 text-sm">
-            &copy; 2025 Bharat Bakers Needs & More. All rights reserved.
+            <p class="mt-10 text-blue-400 text-sm">© Bharat Bakers Needs & More. Designed with Vibe Coding.</p>
         </div>
     </footer>
 
+    <script>
+        // Scroll Event Listener
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            const rotatingBg = document.getElementById('rotating-bg');
+            
+            // Image ko scroll ke hisab se rotate karo (0.2 speed control hai)
+            rotatingBg.style.transform = `translate(-50%, -50%) rotate(${scrollPosition * 0.15}deg)`;
+        });
+    </script>
 </body>
 </html>

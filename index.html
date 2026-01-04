@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bharat Bakers - Modern Store</title>
+    <title>Bharat Bakers - Needs & More</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -16,10 +16,9 @@
             theme: {
                 extend: {
                     colors: {
-                        cream: '#F9F7F2',     // Rich Off-White Background
-                        royal: '#1B2A41',     // Deep Navy Blue Text
-                        accent: '#D35400',    // Burnt Orange Accent
-                        softGray: '#E5E7EB',
+                        cardBlueLight: '#E6F3FF', // Card ka Light Blue Background
+                        cardBlueDark: '#003366',  // Card ka Dark Blue Text
+                        accentGold: '#D4AF37',    // Thoda Gold touch luxury ke liye
                     },
                     fontFamily: {
                         serif: ['Bodoni Moda', 'serif'],
@@ -41,8 +40,9 @@
 
     <style>
         body {
-            background-color: #F9F7F2;
-            color: #1B2A41;
+            /* Business Card wala Light Blue Background */
+            background-color: #E6F3FF; 
+            color: #003366;
             overflow-x: hidden;
         }
 
@@ -56,166 +56,178 @@
             object-fit: contain;
             transform: translate(-50%, -50%);
             z-index: -1; 
-            opacity: 0.45; /* CHANGED: Visibility increased to 45% */
+            opacity: 0.45; 
             transition: transform 0.1s linear;
             pointer-events: none;
-            filter: contrast(1.1); /* Thoda clear dikhne ke liye */
         }
 
-        /* Modern Button Hover Effect */
+        /* Button Hover */
         .btn-hover {
             transition: all 0.3s ease;
         }
         .btn-hover:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(27, 42, 65, 0.15);
+            box-shadow: 0 10px 20px rgba(0, 51, 102, 0.2);
         }
 
-        /* Smooth Scroll */
         html { scroll-behavior: smooth; }
     </style>
 </head>
-<body class="antialiased selection:bg-royal selection:text-white">
+<body class="antialiased selection:bg-cardBlueDark selection:text-white">
 
     <img id="rotating-bg" src="cake-stand.png" alt="Rotating Cake Stand">
 
     <nav class="fixed top-6 left-0 w-full z-50 flex justify-center px-4">
-        <div class="bg-white/80 backdrop-blur-md border border-white/40 shadow-xl rounded-full px-8 py-3 flex items-center gap-8 md:gap-12">
-            <a href="#home" class="font-sans font-bold text-sm tracking-widest uppercase hover:text-accent transition">Home</a>
+        <div class="bg-white/90 backdrop-blur-md border border-cardBlueDark/20 shadow-xl rounded-full px-8 py-3 flex items-center gap-8 md:gap-12">
+            <a href="#home" class="font-sans font-bold text-sm tracking-widest uppercase hover:text-accentGold transition">Home</a>
             
             <div class="flex flex-col items-center">
-                <span class="font-serif text-2xl font-bold leading-none">Bharat</span>
-                <span class="text-[0.6rem] font-bold tracking-[0.2em] uppercase text-accent">Bakers</span>
+                <span class="font-serif text-3xl font-black leading-none text-cardBlueDark">Bharat</span>
+                <span class="font-serif text-xl font-bold leading-none text-cardBlueDark">BAKERS</span>
+                <span class="text-[0.6rem] font-bold tracking-[0.2em] uppercase text-accentGold mt-1">NEED & MORE</span>
             </div>
 
-            <a href="#contact" class="font-sans font-bold text-sm tracking-widest uppercase hover:text-accent transition">Contact</a>
+            <a href="#contact" class="font-sans font-bold text-sm tracking-widest uppercase hover:text-accentGold transition">Contact</a>
         </div>
     </nav>
 
     <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20 relative">
         
         <div class="relative z-10 max-w-4xl">
-            <div class="inline-flex items-center gap-2 border border-royal/20 rounded-full px-4 py-1 mb-6 bg-white/50 backdrop-blur-sm">
-                <i class="fa-solid fa-star text-accent text-xs"></i>
-                <span class="text-xs font-bold tracking-widest uppercase">Satara's No.1 Bakery Supplier</span>
+            <div class="inline-flex items-center gap-2 border border-cardBlueDark/20 rounded-full px-4 py-1 mb-6 bg-white/50 backdrop-blur-sm">
+                <i class="fa-solid fa-star text-accentGold text-xs"></i>
+                <span class="text-xs font-bold tracking-widest uppercase text-cardBlueDark">Satara's No.1 Bakery Supplier</span>
             </div>
 
-            <h1 class="font-serif font-black text-6xl md:text-8xl lg:text-9xl text-royal mb-4 leading-[0.9]">
-                Bake <br> <span class="italic text-accent">Art.</span>
+            <h1 class="font-serif font-black text-6xl md:text-8xl lg:text-9xl text-cardBlueDark mb-4 leading-[0.9]">
+                Bake <br> <span class="italic text-accentGold">Art.</span>
             </h1>
 
-            <p class="font-sans text-lg md:text-xl text-gray-600 max-w-lg mx-auto mb-10 leading-relaxed bg-cream/30 backdrop-blur-sm rounded-lg">
-                Everything you need to create magic. From imported stands to premium chocolate material.
+            <p class="font-sans text-lg md:text-xl text-cardBlueDark/80 font-medium max-w-lg mx-auto mb-10 leading-relaxed bg-white/40 backdrop-blur-sm p-4 rounded-xl">
+                One-stop shop for Cake Decorating Materials, Party Items & Chocolate Making Supplies.
             </p>
 
             <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#products" class="bg-royal text-white px-8 py-4 rounded-full font-bold tracking-wide btn-hover">
+                <a href="#products" class="bg-cardBlueDark text-white px-8 py-4 rounded-full font-bold tracking-wide btn-hover shadow-lg border border-transparent hover:bg-white hover:text-cardBlueDark hover:border-cardBlueDark transition">
                     View Collection
                 </a>
-                <a href="tel:9420487398" class="bg-white border border-royal/20 text-royal px-8 py-4 rounded-full font-bold tracking-wide hover:bg-royal hover:text-white transition btn-hover">
+                <a href="tel:9420487398" class="bg-white/90 border border-cardBlueDark/20 text-cardBlueDark px-8 py-4 rounded-full font-bold tracking-wide hover:bg-cardBlueDark hover:text-white transition btn-hover shadow-lg backdrop-blur-sm">
                     Call Aslam Bhai
                 </a>
             </div>
         </div>
     </section>
 
-    <div class="bg-royal text-cream py-4 overflow-hidden border-y border-white/10 rotate-1 shadow-lg relative z-20 mt-10 mb-20">
+    <div class="bg-cardBlueDark text-white py-4 overflow-hidden border-y border-white/10 rotate-1 shadow-lg relative z-20 mt-10 mb-20">
         <div class="whitespace-nowrap animate-marquee flex gap-10 font-serif italic text-2xl md:text-3xl">
-            <span>Cake Decorating Tools</span> • <span>Fancy Stands</span> • <span>Chocolate Material</span> • <span>Party Supplies</span> • 
-            <span>Cake Decorating Tools</span> • <span>Fancy Stands</span> • <span>Chocolate Material</span> • <span>Party Supplies</span> •
-            <span>Cake Decorating Tools</span> • <span>Fancy Stands</span> • <span>Chocolate Material</span> • <span>Party Supplies</span> •
+            <span>Party Decorations</span> • <span>Fancy Cake Stands</span> • <span>Chocolate Boxes</span> • <span>Toppers</span> • 
+            <span>Party Decorations</span> • <span>Fancy Cake Stands</span> • <span>Chocolate Boxes</span> • <span>Toppers</span> •
+            <span>Party Decorations</span> • <span>Fancy Cake Stands</span> • <span>Chocolate Boxes</span> • <span>Toppers</span> •
         </div>
     </div>
 
     <section id="products" class="py-10 px-4 md:px-10 max-w-7xl mx-auto">
         <div class="flex flex-col md:flex-row justify-between items-end mb-12">
             <div>
-                <h2 class="font-serif font-black text-5xl md:text-6xl text-royal">Curated <span class="italic text-accent">Items</span></h2>
+                <h2 class="font-serif font-black text-5xl md:text-6xl text-cardBlueDark">Curated <span class="italic text-accentGold">Items</span></h2>
             </div>
-            <p class="text-gray-500 max-w-xs text-right mt-4 md:mt-0">Premium quality materials sourced for professional bakers.</p>
+            <p class="text-cardBlueDark/70 font-bold max-w-xs text-right mt-4 md:mt-0">
+                Premium materials as per your business needs.
+            </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[600px]">
             
-            <div class="md:col-span-1 md:row-span-2 bg-white rounded-[2rem] p-8 shadow-xl border border-gray-100 relative overflow-hidden group btn-hover">
-                <div class="absolute top-0 right-0 bg-accent text-white px-4 py-2 rounded-bl-2xl font-bold text-sm">HOT</div>
-                <div class="mt-10 h-40 md:h-64 w-full bg-gray-100 rounded-xl mb-6 overflow-hidden">
-                    <img src="stand.jpg" alt="Luxury Cake Stand" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+            <div class="md:col-span-1 md:row-span-2 bg-white rounded-[2rem] p-8 shadow-xl border border-cardBlueDark/10 relative overflow-hidden group btn-hover">
+                <div class="absolute top-0 right-0 bg-accentGold text-white px-4 py-2 rounded-bl-2xl font-bold text-sm">HOT</div>
+                <div class="mt-10 h-40 md:h-64 w-full bg-cardBlueLight rounded-xl mb-6 overflow-hidden">
+                    <img src="stand.png" alt="Luxury Cake Stand" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
                 </div>
-                <h3 class="font-serif text-3xl mb-2 font-bold">Luxury Stands</h3>
-                <p class="text-gray-500 mb-6">Rotating tiers, crystal & acrylic stands that make your cake the centerpiece.</p>
-                <a href="#contact" class="inline-block border-b border-royal pb-1 font-bold hover:text-accent transition">Check Prices</a>
+                <h3 class="font-serif text-3xl mb-2 font-bold text-cardBlueDark">Fancy Stands</h3>
+                <p class="text-gray-600 mb-6 font-sans">Rotating tiers, crystal & acrylic stands used for heavy cakes.</p>
+                <a href="#contact" class="inline-block border-b border-cardBlueDark pb-1 font-bold hover:text-accentGold transition">Check Prices</a>
             </div>
 
-            <div class="md:col-span-2 bg-royal rounded-[2rem] p-8 shadow-xl text-white relative overflow-hidden group btn-hover flex flex-col md:flex-row items-center gap-6">
+            <div class="md:col-span-2 bg-cardBlueDark rounded-[2rem] p-8 shadow-xl text-white relative overflow-hidden group btn-hover flex flex-col md:flex-row items-center gap-6">
                 <div class="flex-1 z-10">
-                    <h3 class="font-serif text-3xl mb-2 font-bold">Chocolate & Molds</h3>
-                    <p class="text-gray-300 mb-6">High-quality compounds, colors, and silicone molds.</p>
-                    <a href="#contact" class="bg-white text-royal px-6 py-2 rounded-full font-bold text-sm hover:bg-accent hover:text-white transition">Enquire Now</a>
+                    <h3 class="font-serif text-3xl mb-2 font-bold">Chocolate & Boxes</h3>
+                    <p class="text-blue-100 mb-6 font-sans">Chocolate making materials, silicone molds, and premium gift boxes.</p>
+                    <a href="#contact" class="bg-white text-cardBlueDark px-6 py-2 rounded-full font-bold text-sm hover:bg-accentGold hover:text-white transition">Enquire Now</a>
                 </div>
                 <div class="w-full md:w-48 h-32 md:h-full bg-white/10 rounded-xl overflow-hidden">
-             <img src="choco.jpg" alt="Chocolate Molds" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-90">
+                     <img src="choco.png" alt="Chocolate Molds" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-90">
                 </div>
             </div>
 
-            <div class="bg-white rounded-[2rem] p-6 shadow-xl border border-gray-100 group btn-hover">
-                <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-accent text-xl mb-4">
+            <div class="bg-white rounded-[2rem] p-6 shadow-xl border border-cardBlueDark/10 group btn-hover">
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-cardBlueDark text-xl mb-4">
                     <i class="fa-solid fa-cake-candles"></i>
                 </div>
-                <h3 class="font-serif text-xl font-bold">Tools</h3>
-                <p class="text-sm text-gray-500 mt-2">Nozzles, tins & spatulas.</p>
+                <h3 class="font-serif text-xl font-bold text-cardBlueDark">Cake Decor</h3>
+                <p class="text-sm text-gray-600 mt-2 font-sans">Decorating materials, fondant tools, nozzles & turntables.</p>
             </div>
 
-            <div class="bg-white rounded-[2rem] p-6 shadow-xl border border-gray-100 group btn-hover">
-                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-royal text-xl mb-4">
+            <div class="bg-white rounded-[2rem] p-6 shadow-xl border border-cardBlueDark/10 group btn-hover">
+                <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-accentGold text-xl mb-4">
                     <i class="fa-solid fa-gifts"></i>
                 </div>
-                <h3 class="font-serif text-xl font-bold">Decor</h3>
-                <p class="text-sm text-gray-500 mt-2">Balloons, banners & lights.</p>
+                <h3 class="font-serif text-xl font-bold text-cardBlueDark">Party Items</h3>
+                <p class="text-sm text-gray-600 mt-2 font-sans">Decoration materials, banners, lights & poppers.</p>
             </div>
 
         </div>
     </section>
 
     <section id="contact" class="py-20 px-6">
-        <div class="max-w-5xl mx-auto bg-white rounded-[3rem] shadow-2xl p-8 md:p-16 relative overflow-hidden">
-            <div class="absolute -top-20 -right-20 w-64 h-64 bg-accent/10 rounded-full blur-3xl"></div>
-
+        <div class="max-w-5xl mx-auto bg-white/80 backdrop-blur-xl rounded-[3rem] shadow-2xl p-8 md:p-16 relative overflow-hidden border border-white">
+            
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
                 
                 <div>
-                    <h2 class="font-serif text-4xl md:text-5xl mb-6 text-royal font-bold">Let's Talk <br> <span class="text-accent">Business.</span></h2>
-                    <p class="text-gray-500 mb-8">Visit our store at G.S. Tower or call us directly. We provide the best rates in Satara.</p>
+                    <h2 class="font-serif text-4xl md:text-5xl mb-6 text-cardBlueDark font-bold">Visit <span class="text-accentGold">Us.</span></h2>
                     
-                    <div class="space-y-4">
-                        <a href="tel:9420487398" class="flex items-center gap-4 group cursor-pointer">
-                            <div class="w-10 h-10 rounded-full bg-royal text-white flex items-center justify-center group-hover:bg-accent transition">
-                                <i class="fa-solid fa-phone"></i>
+                    <div class="space-y-6">
+                        <a href="https://www.google.com/maps/search/G+S+Tower,+181,+Budhwar+Peth,+Shukrawar+Peth,+Satara,+Maharashtra+415002" target="_blank" class="flex items-start gap-4 group cursor-pointer p-4 bg-cardBlueLight rounded-2xl hover:bg-white border border-transparent hover:border-cardBlueDark transition">
+                            <div class="w-10 h-10 rounded-full bg-cardBlueDark text-white flex items-center justify-center group-hover:bg-accentGold transition shrink-0">
+                                <i class="fa-solid fa-map-location-dot"></i>
                             </div>
-                            <span class="font-bold text-lg group-hover:text-accent transition">9420487398 (Aslam Bhai)</span>
-                        </a>
-                        <a href="tel:8087359298" class="flex items-center gap-4 group cursor-pointer">
-                            <div class="w-10 h-10 rounded-full bg-royal text-white flex items-center justify-center group-hover:bg-accent transition">
-                                <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <span class="font-bold text-lg text-cardBlueDark block">G S Tower, 181,</span>
+                                <span class="text-sm text-gray-600 group-hover:text-cardBlueDark">Guruwar Peth, Satara.</span>
+                                <span class="text-xs text-accentGold font-bold mt-1 block">CLICK TO OPEN MAP</span>
                             </div>
-                            <span class="font-bold text-lg group-hover:text-accent transition">8087359298 (Saad)</span>
                         </a>
+
+                        <div class="space-y-3">
+                            <a href="tel:9420487398" class="flex items-center gap-4 group cursor-pointer">
+                                <div class="w-10 h-10 rounded-full bg-cardBlueDark text-white flex items-center justify-center group-hover:bg-accentGold transition">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <span class="font-bold text-lg text-cardBlueDark group-hover:text-accentGold transition">9420487398 (Aslam Bhai)</span>
+                            </a>
+                            <a href="tel:8087359298" class="flex items-center gap-4 group cursor-pointer">
+                                <div class="w-10 h-10 rounded-full bg-cardBlueDark text-white flex items-center justify-center group-hover:bg-accentGold transition">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <span class="font-bold text-lg text-cardBlueDark group-hover:text-accentGold transition">8087359298 (Saad)</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <form class="space-y-4">
-                    <input type="text" placeholder="Your Name" class="w-full bg-gray-50 border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-accent outline-none font-sans">
-                    <input type="tel" placeholder="Phone Number" class="w-full bg-gray-50 border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-accent outline-none font-sans">
-                    <textarea rows="3" placeholder="Requirement..." class="w-full bg-gray-50 border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-accent outline-none font-sans"></textarea>
-                    <button class="w-full bg-royal text-white font-bold py-4 rounded-2xl hover:bg-accent transition shadow-lg">Send Enquiry</button>
+                    <input type="text" placeholder="Your Name" class="w-full bg-cardBlueLight border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-cardBlueDark outline-none font-sans text-cardBlueDark placeholder-cardBlueDark/50">
+                    <input type="tel" placeholder="Phone Number" class="w-full bg-cardBlueLight border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-cardBlueDark outline-none font-sans text-cardBlueDark placeholder-cardBlueDark/50">
+                    <textarea rows="3" placeholder="Requirement (e.g. Cake Box price)..." class="w-full bg-cardBlueLight border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-cardBlueDark outline-none font-sans text-cardBlueDark placeholder-cardBlueDark/50"></textarea>
+                    <button class="w-full bg-cardBlueDark text-white font-bold py-4 rounded-2xl hover:bg-accentGold transition shadow-lg">Send Enquiry</button>
                 </form>
 
             </div>
         </div>
     </section>
 
-    <footer class="text-center py-10 opacity-60">
-        <p class="font-serif text-royal text-sm">&copy; 2025 Bharat Bakers Needs & More. Satara.</p>
+    <footer class="text-center py-10 opacity-70">
+        <p class="font-serif text-cardBlueDark text-sm font-bold">&copy; 2026 Bharat Bakers Needs & More. Satara.</p>
     </footer>
 
     <script>
@@ -223,7 +235,6 @@
             const scrollY = window.scrollY;
             const bg = document.getElementById('rotating-bg');
             if(bg) {
-                // Background image center me rahegi, bas gol ghumegi
                 bg.style.transform = `translate(-50%, -50%) rotate(${scrollY * 0.2}deg)`;
             }
         });

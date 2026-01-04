@@ -9,7 +9,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;0,6..96,900;1,6..96,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -51,14 +51,15 @@
             position: fixed;
             top: 50%;
             left: 50%;
-            width: 700px; /* Thoda optimize kiya size */
+            width: 700px;
             height: 700px;
             object-fit: contain;
             transform: translate(-50%, -50%);
             z-index: -1; 
-            opacity: 0.15; /* Subtle background */
+            opacity: 0.45; /* CHANGED: Visibility increased to 45% */
             transition: transform 0.1s linear;
             pointer-events: none;
+            filter: contrast(1.1); /* Thoda clear dikhne ke liye */
         }
 
         /* Modern Button Hover Effect */
@@ -99,11 +100,11 @@
                 <span class="text-xs font-bold tracking-widest uppercase">Satara's No.1 Bakery Supplier</span>
             </div>
 
-            <h1 class="font-serif text-6xl md:text-8xl lg:text-9xl text-royal mb-4 leading-[0.9]">
+            <h1 class="font-serif font-black text-6xl md:text-8xl lg:text-9xl text-royal mb-4 leading-[0.9]">
                 Bake <br> <span class="italic text-accent">Art.</span>
             </h1>
 
-            <p class="font-sans text-lg md:text-xl text-gray-600 max-w-lg mx-auto mb-10 leading-relaxed">
+            <p class="font-sans text-lg md:text-xl text-gray-600 max-w-lg mx-auto mb-10 leading-relaxed bg-cream/30 backdrop-blur-sm rounded-lg">
                 Everything you need to create magic. From imported stands to premium chocolate material.
             </p>
 
@@ -118,7 +119,7 @@
         </div>
     </section>
 
-    <div class="bg-royal text-cream py-4 overflow-hidden border-y border-white/10 rotate-1 shadow-lg relative z-20 -mt-10 mb-20">
+    <div class="bg-royal text-cream py-4 overflow-hidden border-y border-white/10 rotate-1 shadow-lg relative z-20 mt-10 mb-20">
         <div class="whitespace-nowrap animate-marquee flex gap-10 font-serif italic text-2xl md:text-3xl">
             <span>Cake Decorating Tools</span> • <span>Fancy Stands</span> • <span>Chocolate Material</span> • <span>Party Supplies</span> • 
             <span>Cake Decorating Tools</span> • <span>Fancy Stands</span> • <span>Chocolate Material</span> • <span>Party Supplies</span> •
@@ -129,7 +130,7 @@
     <section id="products" class="py-10 px-4 md:px-10 max-w-7xl mx-auto">
         <div class="flex flex-col md:flex-row justify-between items-end mb-12">
             <div>
-                <h2 class="font-serif text-5xl md:text-6xl text-royal">Curated <span class="italic text-accent">Items</span></h2>
+                <h2 class="font-serif font-black text-5xl md:text-6xl text-royal">Curated <span class="italic text-accent">Items</span></h2>
             </div>
             <p class="text-gray-500 max-w-xs text-right mt-4 md:mt-0">Premium quality materials sourced for professional bakers.</p>
         </div>
@@ -141,14 +142,14 @@
                 <div class="mt-10 h-40 md:h-64 w-full bg-gray-100 rounded-xl mb-6 overflow-hidden">
                     <img src="https://placehold.co/600x600/f3f4f6/1B2A41?text=Stands" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
                 </div>
-                <h3 class="font-serif text-3xl mb-2">Luxury Stands</h3>
+                <h3 class="font-serif text-3xl mb-2 font-bold">Luxury Stands</h3>
                 <p class="text-gray-500 mb-6">Rotating tiers, crystal & acrylic stands that make your cake the centerpiece.</p>
                 <a href="#contact" class="inline-block border-b border-royal pb-1 font-bold hover:text-accent transition">Check Prices</a>
             </div>
 
             <div class="md:col-span-2 bg-royal rounded-[2rem] p-8 shadow-xl text-white relative overflow-hidden group btn-hover flex flex-col md:flex-row items-center gap-6">
                 <div class="flex-1 z-10">
-                    <h3 class="font-serif text-3xl mb-2">Chocolate & Molds</h3>
+                    <h3 class="font-serif text-3xl mb-2 font-bold">Chocolate & Molds</h3>
                     <p class="text-gray-300 mb-6">High-quality compounds, colors, and silicone molds.</p>
                     <a href="#contact" class="bg-white text-royal px-6 py-2 rounded-full font-bold text-sm hover:bg-accent hover:text-white transition">Enquire Now</a>
                 </div>
@@ -183,7 +184,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
                 
                 <div>
-                    <h2 class="font-serif text-4xl md:text-5xl mb-6 text-royal">Let's Talk <br> <span class="text-accent">Business.</span></h2>
+                    <h2 class="font-serif text-4xl md:text-5xl mb-6 text-royal font-bold">Let's Talk <br> <span class="text-accent">Business.</span></h2>
                     <p class="text-gray-500 mb-8">Visit our store at G.S. Tower or call us directly. We provide the best rates in Satara.</p>
                     
                     <div class="space-y-4">

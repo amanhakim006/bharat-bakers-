@@ -21,8 +21,8 @@
                         accentGold: '#D4AF37',    
                     },
                     fontFamily: {
-                        logo: ['Cinzel', 'serif'],       /* For Bharat Bakers Title */
-                        heading: ['Abril Fatface', 'cursive'], /* For Bake Art, Curated Items */
+                        logo: ['Cinzel', 'serif'],       
+                        heading: ['Abril Fatface', 'cursive'], 
                         sans: ['DM Sans', 'sans-serif'],
                     },
                     animation: {
@@ -46,7 +46,7 @@
             overflow-x: hidden;
         }
 
-        /* Background Image - Set to PNG */
+        /* --- FIXED: ROTATING BACKGROUND CSS --- */
         #rotating-bg {
             position: fixed;
             top: 50%;
@@ -54,11 +54,11 @@
             width: 700px;
             height: 700px;
             object-fit: contain;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); /* Center perfectly */
             z-index: -1; 
             opacity: 0.25; 
-            transition: transform 0.1s linear;
             pointer-events: none;
+            will-change: transform; /* Performance Booster for Rotation */
         }
 
         .btn-hover {
@@ -294,9 +294,7 @@
 
     <div id="galleryModal" class="modal-hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
         <div class="absolute inset-0 bg-cardBlueDark/90 backdrop-blur-md" onclick="toggleGallery()"></div>
-        
         <div class="bg-white rounded-[2rem] shadow-2xl w-full max-w-5xl h-[85vh] relative z-10 flex flex-col overflow-hidden">
-            
             <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-20">
                 <div>
                     <h3 class="font-heading text-2xl md:text-3xl text-cardBlueDark">Product Gallery</h3>
@@ -306,56 +304,38 @@
                     <i class="fa-solid fa-xmark text-xl"></i>
                 </button>
             </div>
-
             <div class="flex-1 overflow-y-auto p-6 bg-gray-50">
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    
                     <div class="aspect-square bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative">
-                        <img src="stand.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Item">
-                        <div class="absolute bottom-0 left-0 w-full bg-black/50 text-white text-xs p-2 translate-y-full group-hover:translate-y-0 transition">Stands</div>
+                        <img src="stand.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
-
                     <div class="aspect-square bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative">
-                        <img src="choco.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Item">
-                        <div class="absolute bottom-0 left-0 w-full bg-black/50 text-white text-xs p-2 translate-y-full group-hover:translate-y-0 transition">Molds</div>
-                    </div>
-
-                    <div class="aspect-square bg-gray-200 rounded-xl flex flex-col items-center justify-center text-gray-400">
-                        <i class="fa-solid fa-image text-2xl mb-2"></i>
-                        <span class="text-xs">Image 3</span>
-                    </div>
-                    <div class="aspect-square bg-gray-200 rounded-xl flex flex-col items-center justify-center text-gray-400">
-                        <i class="fa-solid fa-image text-2xl mb-2"></i>
-                        <span class="text-xs">Image 4</span>
+                        <img src="choco.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
                      <div class="aspect-square bg-gray-200 rounded-xl flex flex-col items-center justify-center text-gray-400">
-                        <i class="fa-solid fa-image text-2xl mb-2"></i>
-                        <span class="text-xs">Image 5</span>
+                        <i class="fa-solid fa-image text-2xl mb-2"></i><span class="text-xs">Image 3</span>
                     </div>
                     <div class="aspect-square bg-gray-200 rounded-xl flex flex-col items-center justify-center text-gray-400">
-                        <i class="fa-solid fa-image text-2xl mb-2"></i>
-                        <span class="text-xs">Image 6</span>
+                        <i class="fa-solid fa-image text-2xl mb-2"></i><span class="text-xs">Image 4</span>
                     </div>
-
-                    </div>
+                </div>
             </div>
-
             <div class="p-4 border-t border-gray-100 bg-white text-center">
                 <a href="tel:9420487398" class="inline-block bg-cardBlueDark text-white px-8 py-3 rounded-full font-bold text-sm hover:bg-accentGold transition shadow-lg">
                     <i class="fa-solid fa-phone mr-2"></i> Order Now
                 </a>
             </div>
-
         </div>
     </div>
 
     <script>
-        // Rotating Background Logic
+        // Rotating Background Logic (Optimized)
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
             const bg = document.getElementById('rotating-bg');
             if(bg) {
-                bg.style.transform = `translate(-50%, -50%) rotate(${scrollY * 0.2}deg)`;
+                // Ensure translate stays centered, speed increased to 0.5 for visibility
+                bg.style.transform = `translate(-50%, -50%) rotate(${scrollY * 0.5}deg)`;
             }
         });
 
@@ -365,4 +345,13 @@
             if (modal.classList.contains('modal-hidden')) {
                 modal.classList.remove('modal-hidden');
                 modal.classList.add('modal-visible');
-                document
+                document.body.style.overflow = 'hidden';
+            } else {
+                modal.classList.remove('modal-visible');
+                modal.classList.add('modal-hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>

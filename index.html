@@ -96,18 +96,18 @@
 
     <img id="rotating-bg" src="cake-stand.png" alt="Rotating Cake Stand">
 
-    <div class="fixed top-4 left-4 z-50 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-lg border border-cardBlueDark/10 flex items-center gap-3">
+    <div class="fixed top-28 left-4 md:top-4 md:left-4 z-40 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-lg border border-cardBlueDark/10 flex items-center gap-3">
         <div class="relative flex h-3 w-3">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
           <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
         </div>
         <div class="flex flex-col leading-none">
-            <span class="text-[0.6rem] uppercase font-bold text-gray-500 tracking-wider">Total Visits</span>
-            <span class="text-sm font-bold text-cardBlueDark font-sans" id="visit-count">12,540</span>
+            <span class="text-[0.6rem] uppercase font-bold text-gray-500 tracking-wider">Live Visits</span>
+            <span class="text-sm font-bold text-cardBlueDark font-sans" id="visit-count">Loading...</span>
         </div>
     </div>
 
-    <nav class="fixed top-6 left-0 w-full z-40 flex justify-center px-4">
+    <nav class="fixed top-6 left-0 w-full z-50 flex justify-center px-4">
         <div class="bg-white/90 backdrop-blur-md border border-cardBlueDark/20 shadow-xl rounded-full px-8 py-3 flex items-center gap-8 w-max">
             <a href="#home" class="font-sans font-bold text-xs md:text-sm tracking-widest uppercase hover:text-accentGold transition whitespace-nowrap">Home</a>
             <div class="flex flex-col items-center text-center px-2">
@@ -459,14 +459,22 @@
             }
         }
 
-        // 5. Visitor Counter Logic (Mock Counter)
-        // This increases the count every time the page is loaded/refreshed
+        // 5. GLOBAL Visitor Counter using API
+        // This connects to an external server to count hits across all users/devices
         document.addEventListener("DOMContentLoaded", function() {
-            let count = localStorage.getItem('page_views') || 12540;
-            // Add slight randomness to make it look active, or just increment by 1
-            count = parseInt(count) + 1;
-            localStorage.setItem('page_views', count);
-            document.getElementById('visit-count').innerText = count.toLocaleString();
+            const counterElement = document.getElementById('visit-count');
+            
+            // Using countapi.xyz which is free and requires no registration
+            // Key: bharat_bakers_live_counter (Unique ID for your site)
+            fetch('https://api.countapi.xyz/hit/bharat_bakers_live_counter/visits')
+                .then(response => response.json())
+                .then(data => {
+                    counterElement.innerText = data.value.toLocaleString();
+                })
+                .catch(err => {
+                    console.error("Counter Error:", err);
+                    counterElement.innerText = "Error"; // Fallback if API is blocked
+                });
         });
     </script>
 </body>

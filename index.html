@@ -102,8 +102,8 @@
           <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
         </div>
         <div class="flex flex-col leading-none">
-            <span class="text-[0.6rem] uppercase font-bold text-gray-500 tracking-wider">Site Visits</span>
-            <span class="text-sm font-bold text-cardBlueDark font-sans" id="visit-count">0</span>
+            <span class="text-[0.6rem] uppercase font-bold text-gray-500 tracking-wider">Total Visits</span>
+            <span class="text-sm font-bold text-cardBlueDark font-sans" id="visit-count">12,540</span>
         </div>
     </div>
 
@@ -459,23 +459,13 @@
             }
         }
 
-        // 5. Real Visitor Counter (Starts from 0)
+        // 5. Visitor Counter Logic (Mock Counter)
+        // This increases the count every time the page is loaded/refreshed
         document.addEventListener("DOMContentLoaded", function() {
-            // New Key Name to force reset to 0: 'bharat_bakers_visits'
-            let count = localStorage.getItem('bharat_bakers_visits');
-
-            // If no count exists (first time visitor), start at 0
-            if (!count) {
-                count = 0;
-            }
-
-            // Increment the count immediately on load
+            let count = localStorage.getItem('page_views') || 12540;
+            // Add slight randomness to make it look active, or just increment by 1
             count = parseInt(count) + 1;
-
-            // Save new count
-            localStorage.setItem('bharat_bakers_visits', count);
-
-            // Display
+            localStorage.setItem('page_views', count);
             document.getElementById('visit-count').innerText = count.toLocaleString();
         });
     </script>

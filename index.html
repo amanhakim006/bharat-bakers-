@@ -102,8 +102,8 @@
           <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
         </div>
         <div class="flex flex-col leading-none">
-            <span class="text-[0.6rem] uppercase font-bold text-gray-500 tracking-wider">Total Visits</span>
-            <span class="text-sm font-bold text-cardBlueDark font-sans" id="visit-count">12,540</span>
+            <span class="text-[0.6rem] uppercase font-bold text-gray-500 tracking-wider">Site Visits</span>
+            <span class="text-sm font-bold text-cardBlueDark font-sans" id="visit-count">0</span>
         </div>
     </div>
 
@@ -372,4 +372,112 @@
                         </div>
                     </div>
 
-                    <div class="image-card aspect-square bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative cursor-pointer" onclick="openFullView('train-cake.jpg', 'Train Topper')
+                    <div class="image-card aspect-square bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative cursor-pointer" onclick="openFullView('train-cake.jpg', 'Train Topper')">
+                        <img src="train-cake.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="Train">
+                        <div class="overlay-info absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 flex justify-between items-end translate-y-full transition duration-300">
+                            <span class="text-white font-bold text-sm">Train Topper</span>
+                            <button onclick="event.stopPropagation(); shareItem('Train Topper')" class="text-white hover:text-accentGold transition"><i class="fa-solid fa-share-nodes text-lg"></i></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="p-4 border-t border-gray-100 bg-white text-center">
+                <a href="tel:9420487398" class="inline-block bg-cardBlueDark text-white px-8 py-3 rounded-full font-bold text-sm hover:bg-accentGold transition shadow-lg">
+                    <i class="fa-solid fa-phone mr-2"></i> Call to Order
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="fullImageView" class="modal-hidden fixed inset-0 z-[200] flex items-center justify-center bg-black/95 p-4">
+        <button onclick="closeFullView()" class="absolute top-6 right-6 text-white text-4xl hover:text-accentGold transition z-50">
+            ×
+        </button>
+        
+        <div class="relative w-full h-full flex flex-col items-center justify-center">
+            <img id="fullImage" src="" class="max-h-[85vh] max-w-full object-contain rounded-lg shadow-2xl border border-white/20">
+            <h3 id="fullImageTitle" class="mt-4 text-white font-heading text-2xl tracking-wide"></h3>
+        </div>
+    </div>
+
+    <script>
+        // 1. Rotating Background
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const bg = document.getElementById('rotating-bg');
+            if(bg) {
+                bg.style.transform = `translate(-50%, -50%) rotate(${scrollY * 0.5}deg)`;
+            }
+        });
+
+        // 2. Toggle Gallery Modal (Grid)
+        function toggleGallery() {
+            const modal = document.getElementById('galleryModal');
+            if (modal.classList.contains('modal-hidden')) {
+                modal.classList.remove('modal-hidden');
+                modal.classList.add('modal-visible');
+                document.body.style.overflow = 'hidden';
+            } else {
+                modal.classList.remove('modal-visible');
+                modal.classList.add('modal-hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // 3. FULL VIEW Logic
+        function openFullView(imageSrc, imageTitle) {
+            const fullView = document.getElementById('fullImageView');
+            const imgElement = document.getElementById('fullImage');
+            const titleElement = document.getElementById('fullImageTitle');
+
+            imgElement.src = imageSrc;
+            titleElement.innerText = imageTitle;
+
+            fullView.classList.remove('modal-hidden');
+            fullView.classList.add('modal-visible');
+        }
+
+        function closeFullView() {
+            const fullView = document.getElementById('fullImageView');
+            fullView.classList.remove('modal-visible');
+            fullView.classList.add('modal-hidden');
+        }
+
+        // 4. Share Functionality
+        function shareItem(itemName) {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Bharat Bakers Item',
+                    text: `Check out this ${itemName} at Bharat Bakers!`,
+                    url: window.location.href
+                })
+                .catch((error) => console.log('Error sharing', error));
+            } else {
+                alert(`Link copied for ${itemName}! Share it with friends.`);
+            }
+        }
+
+        // 5. Real Visitor Counter (Starts from 0)
+        document.addEventListener("DOMContentLoaded", function() {
+            // New Key Name to force reset to 0: 'bharat_bakers_visits'
+            let count = localStorage.getItem('bharat_bakers_visits');
+
+            // If no count exists (first time visitor), start at 0
+            if (!count) {
+                count = 0;
+            }
+
+            // Increment the count immediately on load
+            count = parseInt(count) + 1;
+
+            // Save new count
+            localStorage.setItem('bharat_bakers_visits', count);
+
+            // Display
+            document.getElementById('visit-count').innerText = count.toLocaleString();
+        });
+    </script>
+</body>
+</html>

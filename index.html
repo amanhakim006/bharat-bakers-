@@ -96,7 +96,18 @@
 
     <img id="rotating-bg" src="cake-stand.png" alt="Rotating Cake Stand">
 
-    <nav class="fixed top-6 left-0 w-full z-50 flex justify-center px-4">
+    <div class="fixed top-4 left-4 z-50 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-lg border border-cardBlueDark/10 flex items-center gap-3">
+        <div class="relative flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+        </div>
+        <div class="flex flex-col leading-none">
+            <span class="text-[0.6rem] uppercase font-bold text-gray-500 tracking-wider">Total Visits</span>
+            <span class="text-sm font-bold text-cardBlueDark font-sans" id="visit-count">12,540</span>
+        </div>
+    </div>
+
+    <nav class="fixed top-6 left-0 w-full z-40 flex justify-center px-4">
         <div class="bg-white/90 backdrop-blur-md border border-cardBlueDark/20 shadow-xl rounded-full px-8 py-3 flex items-center gap-8 w-max">
             <a href="#home" class="font-sans font-bold text-xs md:text-sm tracking-widest uppercase hover:text-accentGold transition whitespace-nowrap">Home</a>
             <div class="flex flex-col items-center text-center px-2">
@@ -117,7 +128,7 @@
                 Bake <br> <span class="text-accentGold">Art.</span>
             </h1>
             <p class="font-sans text-lg md:text-xl text-cardBlueDark/80 font-medium max-w-lg mx-auto mb-10 leading-relaxed bg-white/40 backdrop-blur-sm p-4 rounded-xl border border-white/50">
-                One-stop shop for Cake Decorating Materials, Party Items & Chocolate Making Supplies.
+                One-stop shop for Cake Decorating Materials, Packaging, Party Items & Chocolate Making Supplies.
             </p>
             <div class="flex flex-col md:flex-row gap-4 justify-center">
                 <a href="#products" class="bg-cardBlueDark text-white px-10 py-4 rounded-full font-bold tracking-wide btn-hover shadow-lg border border-transparent hover:bg-white hover:text-cardBlueDark hover:border-cardBlueDark transition">View Collection</a>
@@ -128,8 +139,8 @@
 
     <div class="bg-cardBlueDark text-white py-4 overflow-hidden border-y border-white/10 rotate-1 shadow-lg relative z-20 mt-10 mb-20">
         <div class="whitespace-nowrap animate-marquee flex gap-12 font-heading text-2xl md:text-3xl tracking-wider">
-            <span>Party Decorations</span> • <span>Fancy Cake Stands</span> • <span>Chocolate Boxes</span> • <span>Toppers</span> • 
-            <span>Party Decorations</span> • <span>Fancy Cake Stands</span> • <span>Chocolate Boxes</span> • <span>Toppers</span> •
+            <span>Packaging Material</span> • <span>Fancy Cake Stands</span> • <span>Chocolate Boxes</span> • <span>Toppers</span> • 
+            <span>Disposable Items</span> • <span>Fancy Cake Stands</span> • <span>Chocolate Boxes</span> • <span>Toppers</span> •
         </div>
     </div>
 
@@ -155,14 +166,26 @@
                 </div>
             </div>
 
-            <div class="md:col-span-3 bg-cardBlueDark rounded-[2rem] p-8 shadow-xl text-white relative overflow-hidden group btn-hover flex flex-col md:flex-row items-center gap-6">
+            <div class="md:col-span-2 bg-cardBlueDark rounded-[2rem] p-8 shadow-xl text-white relative overflow-hidden group btn-hover flex flex-col md:flex-row items-center gap-6">
                 <div class="flex-1 z-10">
-                    <h3 class="font-heading text-3xl mb-2 tracking-wide">Chocolate & Boxes</h3>
-                    <p class="text-blue-100 mb-6 font-sans">Chocolate making materials, silicone molds, and premium gift boxes.</p>
+                    <h3 class="font-heading text-3xl mb-2 tracking-wide">Chocolate & Molds</h3>
+                    <p class="text-blue-100 mb-6 font-sans">Chocolate making materials, compounds, silicone molds and essence.</p>
                     <a href="#contact" class="bg-white text-cardBlueDark px-6 py-2 rounded-full font-bold text-sm hover:bg-accentGold hover:text-white transition">Enquire Now</a>
                 </div>
-                <div class="w-full md:w-48 h-32 md:h-full bg-white/10 rounded-xl overflow-hidden">
+                <div class="w-full md:w-32 h-32 md:h-full bg-white/10 rounded-xl overflow-hidden shrink-0">
                      <img src="choco.jpg" alt="Chocolate Molds" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-90">
+                </div>
+            </div>
+
+            <div class="md:col-span-1 bg-white rounded-[2rem] p-5 shadow-xl border border-cardBlueDark/10 group btn-hover flex flex-col justify-between">
+                <div>
+                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-lg mb-3">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <h3 class="font-heading text-xl text-cardBlueDark tracking-wide leading-tight">Packaging Items</h3>
+                    <p class="text-xs text-gray-600 mt-2 font-sans font-medium leading-relaxed">
+                        Hamper packaging, boxes, bags and disposable material.
+                    </p>
                 </div>
             </div>
 
@@ -182,7 +205,7 @@
                         <i class="fa-solid fa-gifts"></i>
                     </div>
                     <h3 class="font-heading text-xl text-cardBlueDark tracking-wide leading-tight">Party Items</h3>
-                    <p class="text-xs text-gray-600 mt-2 font-sans">Banners, lights & poppers.</p>
+                    <p class="text-xs text-gray-600 mt-2 font-sans">Banners, lights, candles & poppers.</p>
                 </div>
             </div>
 
@@ -349,92 +372,4 @@
                         </div>
                     </div>
 
-                    <div class="image-card aspect-square bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative cursor-pointer" onclick="openFullView('train-cake.jpg', 'Train Topper')">
-                        <img src="train-cake.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="Train">
-                        <div class="overlay-info absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 flex justify-between items-end translate-y-full transition duration-300">
-                            <span class="text-white font-bold text-sm">Train Topper</span>
-                            <button onclick="event.stopPropagation(); shareItem('Train Topper')" class="text-white hover:text-accentGold transition"><i class="fa-solid fa-share-nodes text-lg"></i></button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="p-4 border-t border-gray-100 bg-white text-center">
-                <a href="tel:9420487398" class="inline-block bg-cardBlueDark text-white px-8 py-3 rounded-full font-bold text-sm hover:bg-accentGold transition shadow-lg">
-                    <i class="fa-solid fa-phone mr-2"></i> Call to Order
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div id="fullImageView" class="modal-hidden fixed inset-0 z-[200] flex items-center justify-center bg-black/95 p-4">
-        <button onclick="closeFullView()" class="absolute top-6 right-6 text-white text-4xl hover:text-accentGold transition z-50">
-            ×
-        </button>
-        
-        <div class="relative w-full h-full flex flex-col items-center justify-center">
-            <img id="fullImage" src="" class="max-h-[85vh] max-w-full object-contain rounded-lg shadow-2xl border border-white/20">
-            <h3 id="fullImageTitle" class="mt-4 text-white font-heading text-2xl tracking-wide"></h3>
-        </div>
-    </div>
-
-    <script>
-        // 1. Rotating Background
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            const bg = document.getElementById('rotating-bg');
-            if(bg) {
-                bg.style.transform = `translate(-50%, -50%) rotate(${scrollY * 0.5}deg)`;
-            }
-        });
-
-        // 2. Toggle Gallery Modal (Grid)
-        function toggleGallery() {
-            const modal = document.getElementById('galleryModal');
-            if (modal.classList.contains('modal-hidden')) {
-                modal.classList.remove('modal-hidden');
-                modal.classList.add('modal-visible');
-                document.body.style.overflow = 'hidden';
-            } else {
-                modal.classList.remove('modal-visible');
-                modal.classList.add('modal-hidden');
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        // 3. FULL VIEW Logic
-        function openFullView(imageSrc, imageTitle) {
-            const fullView = document.getElementById('fullImageView');
-            const imgElement = document.getElementById('fullImage');
-            const titleElement = document.getElementById('fullImageTitle');
-
-            imgElement.src = imageSrc;
-            titleElement.innerText = imageTitle;
-
-            fullView.classList.remove('modal-hidden');
-            fullView.classList.add('modal-visible');
-        }
-
-        function closeFullView() {
-            const fullView = document.getElementById('fullImageView');
-            fullView.classList.remove('modal-visible');
-            fullView.classList.add('modal-hidden');
-        }
-
-        // 4. Share Functionality
-        function shareItem(itemName) {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Bharat Bakers Item',
-                    text: `Check out this ${itemName} at Bharat Bakers!`,
-                    url: window.location.href
-                })
-                .catch((error) => console.log('Error sharing', error));
-            } else {
-                alert(`Link copied for ${itemName}! Share it with friends.`);
-            }
-        }
-    </script>
-</body>
-</html>
+                    <div class="image-card aspect-square bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative cursor-pointer" onclick="openFullView('train-cake.jpg', 'Train Topper')

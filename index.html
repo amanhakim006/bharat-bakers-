@@ -1,452 +1,318 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bharat Bakers - Needs & More</title>
+    <title>हॉटेल अन्नपूर्णा | Pure Veg & Banquet Hall</title>
     
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@400;600;800&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cinzel:wght@400;700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cardBlueLight: '#E6F3FF', 
-                        cardBlueDark: '#003366',  
-                        accentGold: '#D4AF37',    
-                    },
-                    fontFamily: {
-                        logo: ['Cinzel', 'serif'],       
-                        heading: ['Abril Fatface', 'cursive'], 
-                        sans: ['DM Sans', 'sans-serif'],
-                    },
-                    animation: {
-                        'marquee': 'marquee 25s linear infinite',
-                    },
-                    keyframes: {
-                        marquee: {
-                            '0%': { transform: 'translateX(0%)' },
-                            '100%': { transform: 'translateX(-100%)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
     <style>
+        :root {
+            --primary-green: #0a3d24;
+            --accent-green: #1e7d4d;
+            --light-bg: #f4f7f5;
+            --white: #ffffff;
+            --text-dark: #1a1a1a;
+            --gold: #c29547;
+            --shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+
         body {
-            background-color: #E6F3FF; 
-            color: #003366;
-            overflow-x: hidden;
+            font-family: 'Anek Devanagari', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            scroll-behavior: smooth;
+            line-height: 1.6;
         }
 
-        /* Rotating Background */
-        #rotating-bg {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            width: 700px;
-            height: 700px;
-            object-fit: contain;
-            transform: translate(-50%, -50%);
-            z-index: -1; 
-            opacity: 0.25; 
-            pointer-events: none;
-            will-change: transform;
+        /* Header & Navigation */
+        header {
+            background: var(--white);
+            padding: 15px 0 0 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .btn-hover {
-            transition: all 0.3s ease;
-        }
-        .btn-hover:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 51, 102, 0.2);
-        }
-
-        /* Modal Transitions */
-        #galleryModal, #fullImageView {
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        .modal-hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-        .modal-visible {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
+        .logo { 
+            font-size: 30px; 
+            font-weight: 800; 
+            color: var(--primary-green);
+            margin: 0 0 12px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
-        /* Image Overlay Hover Effect */
-        .image-card:hover .overlay-info {
-            transform: translateY(0);
+        nav {
+            background-color: var(--primary-green);
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            padding: 12px 2px;
         }
-        
-        html { scroll-behavior: smooth; }
+
+        nav a { 
+            text-decoration: none; 
+            color: var(--white); 
+            font-weight: 700; 
+            font-size: 11px; 
+            font-family: 'Montserrat', sans-serif;
+            white-space: nowrap;
+            padding: 5px 8px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        @media (min-width: 768px) {
+            .logo { font-size: 36px; }
+            nav { gap: 25px; }
+            nav a { font-size: 15px; }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 65vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('annapurna.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h2 { font-size: 2.8rem; margin: 0; font-weight: 800; line-height: 1.1; }
+        .hero p { font-size: 1.2rem; margin: 15px 0 25px; font-family: 'Montserrat', sans-serif; }
+
+        /* Booking Section */
+        .booking-section { background-color: #fff; padding: 40px 20px; border-radius: 20px; margin: 30px 15px; box-shadow: var(--shadow); border: 1px solid #eee; }
+        .booking-form { max-width: 500px; margin: auto; text-align: left; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 800; margin-bottom: 8px; color: var(--primary-green); font-size: 1.2rem; }
+        .form-group input { 
+            width: 100%; padding: 14px; border: 2px solid #ddd; border-radius: 10px; 
+            font-family: 'Montserrat', sans-serif; font-size: 1rem;
+        }
+
+        /* No Underline for Booking Button */
+        .btn-confirm {
+            background-color: #25D366; 
+            color: white; width: 100%; padding: 16px; border: none; border-radius: 10px;
+            font-weight: 700; font-family: 'Montserrat', sans-serif; font-size: 1.1rem;
+            cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+            text-decoration: none; /* Underline Removed */
+        }
+
+        /* Section Styling */
+        .section { padding: 80px 15px; text-align: center; max-width: 1100px; margin: auto; }
+        .section-title { 
+            font-size: 2.6rem; 
+            margin-bottom: 50px; 
+            color: var(--primary-green); 
+            font-weight: 800; 
+            position: relative; 
+            display: inline-block;
+        }
+        .section-title::after { content: ''; width: 70%; height: 5px; background: var(--gold); display: block; margin: 10px auto 0; border-radius: 10px; }
+
+        /* Menu Grid */
+        .menu-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
+        @media (min-width: 768px) { .menu-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .menu-item { background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); }
+        .dish-img { width: 100%; height: 250px; object-fit: cover; }
+        .menu-content { padding: 25px; }
+        .menu-content h3 { font-size: 2rem; font-weight: 700; color: var(--primary-green); margin: 0; }
+
+        /* Features Section */
+        .features-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        @media (min-width: 768px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        .feature-box {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            text-align: left;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            border-bottom: 8px solid var(--accent-green);
+        }
+
+        .feature-box i { font-size: 3rem; color: var(--accent-green); flex-shrink: 0; }
+        .feature-box h4 { margin: 0; font-size: 1.8rem; font-weight: 800; color: var(--primary-green); }
+        .feature-box p { margin: 12px 0 0; font-size: 1.1rem; color: #444; font-weight: 400; }
+
+        /* Social Icons Size */
+        .social-icons { margin-top: 25px; display: flex; justify-content: center; gap: 35px; }
+        .social-icons i { font-size: 2.8rem; color: var(--white); transition: 0.3s; cursor: pointer; }
+        .social-icons i:hover { color: var(--gold); transform: scale(1.1); }
+
+        footer { background: var(--primary-green); color: white; padding: 60px 20px; text-align: center; }
     </style>
 </head>
-<body class="antialiased selection:bg-cardBlueDark selection:text-white">
+<body>
 
-    <img id="rotating-bg" src="cake-stand.png" alt="Rotating Cake Stand">
+    <header>
+        <div class="logo"><i class="fas fa-leaf"></i> हॉटेल अन्नपूर्णा</div>
+        <nav>
+            <a href="#home"><i class="fas fa-home"></i> HOME</a>
+            <a href="#menu"><i class="fas fa-utensils"></i> MENU</a>
+            <a href="#booking"><i class="fas fa-calendar-check"></i> BOOK</a>
+            <a href="#special"><i class="fas fa-star"></i> INFO</a>
+            <a href="#contact"><i class="fas fa-phone"></i> CONTACT</a>
+        </nav>
+    </header>
 
-    <nav class="fixed top-6 left-0 w-full z-50 flex justify-center px-4">
-        <div class="bg-white/90 backdrop-blur-md border border-cardBlueDark/20 shadow-xl rounded-full px-8 py-3 flex items-center gap-8 w-max">
-            <a href="#home" class="font-sans font-bold text-xs md:text-sm tracking-widest uppercase hover:text-accentGold transition whitespace-nowrap">Home</a>
-            <div class="flex flex-col items-center text-center px-2">
-                <h1 class="font-logo text-xl md:text-2xl font-black leading-none text-cardBlueDark tracking-wide whitespace-nowrap">BHARAT BAKERS</h1>
-                <span class="text-[0.6rem] font-bold tracking-[0.3em] uppercase text-accentGold mt-0.5">NEEDS & MORE</span>
+    <div class="hero" id="home">
+        <h2>अस्सल शाकाहारी मेजवानी</h2>
+        <p>Premium Pure Veg Dining & Royal Banquet Hall</p>
+        <a href="#booking" class="btn-confirm" style="width:auto; padding: 18px 45px; background-color: var(--accent-green); text-decoration: none;">
+            Book Your Seat
+        </a>
+    </div>
+
+    <div class="section" id="menu">
+        <h2 class="section-title"><i class="fas fa-utensils"></i> आमचा खास मेन्यू</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=500&q=60" class="dish-img">
+                <div class="menu-content"><h3>पनीर टिक्का मसाला</h3></div>
             </div>
-            <a href="#contact" class="font-sans font-bold text-xs md:text-sm tracking-widest uppercase hover:text-accentGold transition whitespace-nowrap">Contact</a>
-        </div>
-    </nav>
-
-    <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-48 relative">
-        <div class="relative z-10 max-w-5xl">
-            <div class="inline-flex items-center gap-2 border border-cardBlueDark/20 rounded-full px-4 py-1 mb-8 bg-white/50 backdrop-blur-sm">
-                <i class="fa-solid fa-star text-accentGold text-xs"></i>
-                <span class="text-xs font-bold tracking-widest uppercase text-cardBlueDark">Satara's No.1 Bakery Supplier</span>
+            <div class="menu-item">
+                <img src="kaju-curry.webp" class="dish-img">
+                <div class="menu-content"><h3>काजू मसाला करी</h3></div>
             </div>
-            <h1 class="font-heading text-6xl md:text-8xl lg:text-9xl text-cardBlueDark mb-6 leading-[0.9]">
-                Bake <br> <span class="text-accentGold">Art.</span>
-            </h1>
-            <p class="font-sans text-lg md:text-xl text-cardBlueDark/80 font-medium max-w-lg mx-auto mb-10 leading-relaxed bg-white/40 backdrop-blur-sm p-4 rounded-xl border border-white/50">
-                One-stop shop for Cake Decorating Materials, Packaging, Party Items & Chocolate Making Supplies.
-            </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#products" class="bg-cardBlueDark text-white px-10 py-4 rounded-full font-bold tracking-wide btn-hover shadow-lg border border-transparent hover:bg-white hover:text-cardBlueDark hover:border-cardBlueDark transition">View Collection</a>
-                <a href="tel:9420487398" class="bg-white/90 border border-cardBlueDark/20 text-cardBlueDark px-10 py-4 rounded-full font-bold tracking-wide hover:bg-cardBlueDark hover:text-white transition btn-hover shadow-lg backdrop-blur-sm">Call Aslam Bhai</a>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=500&q=60" class="dish-img">
+                <div class="menu-content"><h3>स्पेशल थाळी</h3></div>
             </div>
-        </div>
-    </section>
-
-    <div class="bg-cardBlueDark text-white py-4 overflow-hidden border-y border-white/10 rotate-1 shadow-lg relative z-20 mt-10 mb-20">
-        <div class="whitespace-nowrap animate-marquee flex gap-12 font-heading text-2xl md:text-3xl tracking-wider">
-            <span>Packaging Material</span> • <span>Fancy Cake Stands</span> • <span>Chocolate Boxes</span> • <span>Toppers</span> • 
-            <span>Disposable Items</span> • <span>Fancy Cake Stands</span> • <span>Chocolate Boxes</span> • <span>Toppers</span> •
         </div>
     </div>
 
-    <section id="products" class="py-10 px-4 md:px-10 max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-            <div>
-                <h2 class="font-heading text-5xl md:text-6xl text-cardBlueDark">Curated <span class="text-accentGold">Items</span></h2>
+    <div class="section" id="special">
+        <h2 class="section-title"><i class="fas fa-award"></i> आमची खास वैशिष्ट्ये</h2>
+        <div class="features-grid">
+            <div class="feature-box">
+                <i class="fas fa-hotel"></i>
+                <div>
+                    <h4>भव्य बँक्वेट हॉल</h4>
+                    <p>वाढदिवस, साखरपुडा आणि सर्व कौटुंबिक सोहळ्यांसाठी कोरेगावमधील सर्वोत्तम प्रशस्त हॉल उपलब्ध.</p>
+                </div>
             </div>
-            <p class="text-cardBlueDark/80 font-bold max-w-xs text-right mt-4 md:mt-0">Premium materials as per your business needs.</p>
+            <div class="feature-box">
+                <i class="fas fa-leaf"></i>
+                <div>
+                    <h4>१००% शुद्ध शाकाहारी</h4>
+                    <p>आम्ही अन्नाची शुद्धता जपतो. उत्तम दर्जाचे तेल आणि ताजे मसाले वापरून बनवलेले पदार्थ.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-parking"></i>
+                <div>
+                    <h4>प्रशस्त पार्किंग सोय</h4>
+                    <p>तुमच्या वाहनांसाठी सुरक्षित, मोकळी आणि मोफत पार्किंग सुविधा हॉटेलच्या परिसरात आहे.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-hands-bubbles"></i>
+                <div>
+                    <h4>स्वच्छता आणि हायजीन</h4>
+                    <p>स्वयंपाकघरापासून बसण्याच्या जागेपर्यंत सर्वत्र कडक स्वच्छतेचे नियम पाळले जातात.</p>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 h-auto md:h-[600px]">
-            
-            <div class="md:col-span-1 md:row-span-2 bg-white rounded-[2rem] p-8 shadow-xl border border-cardBlueDark/10 relative overflow-hidden group btn-hover flex flex-col">
-                <div class="absolute top-0 right-0 bg-accentGold text-white px-4 py-2 rounded-bl-2xl font-bold text-sm">HOT</div>
-                <div class="mt-8 flex-grow bg-cardBlueLight rounded-xl mb-6 overflow-hidden relative">
-                    <img src="stand.jpg" alt="Luxury Cake Stand" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+    <div class="section" id="booking">
+        <h2 class="section-title"><i class="fas fa-chair"></i> Book Your Seat</h2>
+        <div class="booking-section">
+            <div class="booking-form">
+                <div class="form-group">
+                    <label>तुमचे नाव (Name):</label>
+                    <input type="text" id="custName" placeholder="तुमचे नाव लिहा">
                 </div>
-                <div>
-                    <h3 class="font-heading text-3xl mb-2 text-cardBlueDark tracking-wide">Fancy Stands</h3>
-                    <p class="text-gray-600 mb-6 font-sans text-sm">Rotating tiers, crystal & acrylic stands used for heavy cakes.</p>
-                    <a href="#contact" class="inline-block border-b border-cardBlueDark pb-1 font-bold hover:text-accentGold transition">Check Prices</a>
+                <div class="form-group">
+                    <label>तारीख (Date):</label>
+                    <input type="date" id="bookDate">
                 </div>
-            </div>
-
-            <div class="md:col-span-2 bg-cardBlueDark rounded-[2rem] p-8 shadow-xl text-white relative overflow-hidden group btn-hover flex flex-col md:flex-row items-center gap-6">
-                <div class="flex-1 z-10">
-                    <h3 class="font-heading text-3xl mb-2 tracking-wide">Chocolate & Molds</h3>
-                    <p class="text-blue-100 mb-6 font-sans">Chocolate making materials, compounds, silicone molds and essence.</p>
-                    <a href="#contact" class="bg-white text-cardBlueDark px-6 py-2 rounded-full font-bold text-sm hover:bg-accentGold hover:text-white transition">Enquire Now</a>
+                <div class="form-group">
+                    <label>वेळ (Time - e.g. 8:30 PM):</label>
+                    <input type="text" id="bookTime" placeholder="उदा. ८:३० वाजता">
                 </div>
-                <div class="w-full md:w-32 h-32 md:h-full bg-white/10 rounded-xl overflow-hidden shrink-0">
-                     <img src="choco.jpg" alt="Chocolate Molds" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-90">
+                <div class="form-group">
+                    <label>व्यक्ती (Guests):</label>
+                    <input type="number" id="guests" value="2" min="1">
                 </div>
-            </div>
-
-            <div class="md:col-span-1 bg-white rounded-[2rem] p-5 shadow-xl border border-cardBlueDark/10 group btn-hover flex flex-col justify-between">
-                <div>
-                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-lg mb-3">
-                        <i class="fa-solid fa-box-open"></i>
-                    </div>
-                    <h3 class="font-heading text-xl text-cardBlueDark tracking-wide leading-tight">Packaging Items</h3>
-                    <p class="text-xs text-gray-600 mt-2 font-sans font-medium leading-relaxed">
-                        Hamper packaging, boxes, bags and disposable material.
-                    </p>
-                </div>
-            </div>
-
-            <div class="md:col-span-1 bg-white rounded-[2rem] p-5 shadow-xl border border-cardBlueDark/10 group btn-hover flex flex-col justify-between">
-                <div>
-                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-cardBlueDark text-lg mb-3">
-                        <i class="fa-solid fa-cake-candles"></i>
-                    </div>
-                    <h3 class="font-heading text-xl text-cardBlueDark tracking-wide leading-tight">Cake Decor</h3>
-                    <p class="text-xs text-gray-600 mt-2 font-sans">Fondant tools, nozzles & turntables.</p>
-                </div>
-            </div>
-
-            <div class="md:col-span-1 bg-white rounded-[2rem] p-5 shadow-xl border border-cardBlueDark/10 group btn-hover flex flex-col justify-between">
-                <div>
-                    <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center text-accentGold text-lg mb-3">
-                        <i class="fa-solid fa-gifts"></i>
-                    </div>
-                    <h3 class="font-heading text-xl text-cardBlueDark tracking-wide leading-tight">Party Items</h3>
-                    <p class="text-xs text-gray-600 mt-2 font-sans">Banners, lights, candles & poppers.</p>
-                </div>
-            </div>
-
-            <div class="md:col-span-1 bg-cardBlueDark rounded-[2rem] p-5 shadow-xl border border-cardBlueDark/10 group btn-hover flex flex-col justify-between relative overflow-hidden">
-                <div class="absolute -right-4 -top-4 w-20 h-20 bg-accentGold/20 rounded-full blur-xl"></div>
-                <div>
-                    <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white text-lg mb-3">
-                        <i class="fa-regular fa-images"></i>
-                    </div>
-                    <h3 class="font-heading text-xl text-white tracking-wide leading-tight">Product Gallery</h3>
-                    <p class="text-xs text-blue-200 mt-2 font-sans">New arrivals updated.</p>
-                </div>
-                <button onclick="toggleGallery()" class="mt-4 w-full bg-white text-cardBlueDark py-2 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-accentGold hover:text-white transition shadow-lg flex items-center justify-center gap-2">
-                    See All <i class="fa-solid fa-arrow-right"></i>
+                <button class="btn-confirm" onclick="sendToWhatsapp()">
+                    <i class="fab fa-whatsapp"></i> Confirm Booking via WhatsApp
                 </button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="contact" class="py-20 px-6">
-        <div class="max-w-5xl mx-auto bg-white/80 backdrop-blur-xl rounded-[3rem] shadow-2xl p-8 md:p-16 relative overflow-hidden border border-white">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
-                <div>
-                    <h2 class="font-heading text-4xl md:text-5xl mb-6 text-cardBlueDark">Visit <span class="text-accentGold">Us.</span></h2>
-                    <div class="space-y-6">
-                        <a href="https://maps.google.com/?q=Radhika+Road+Satara" target="_blank" class="flex items-start gap-4 group cursor-pointer p-4 bg-cardBlueLight rounded-2xl hover:bg-white border border-transparent hover:border-cardBlueDark transition">
-                            <div class="w-10 h-10 rounded-full bg-cardBlueDark text-white flex items-center justify-center group-hover:bg-accentGold transition shrink-0">
-                                <i class="fa-solid fa-map-location-dot"></i>
-                            </div>
-                            <div>
-                                <span class="font-bold text-lg text-cardBlueDark block">G S Tower, 181,</span>
-                                <span class="text-sm text-gray-600 group-hover:text-cardBlueDark">Budhwar Peth, Satara.</span>
-                            </div>
-                        </a>
-                        <div class="space-y-3">
-                            <a href="tel:9420487398" class="flex items-center gap-4 group cursor-pointer">
-                                <div class="w-10 h-10 rounded-full bg-cardBlueDark text-white flex items-center justify-center group-hover:bg-accentGold transition"><i class="fa-solid fa-phone"></i></div>
-                                <span class="font-bold text-lg text-cardBlueDark group-hover:text-accentGold transition">9420487398 (Aslam Bhai)</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-cardBlueLight/50 p-6 rounded-3xl">
-                    <form action="https://formsubmit.co/saadbagwan4949@gmail.com" method="POST" class="space-y-4">
-                        <input type="hidden" name="_subject" value="New Enquiry for Bharat Bakers">
-                        <input type="hidden" name="_captcha" value="false">
-                        <div>
-                            <label class="block text-xs font-bold uppercase text-cardBlueDark mb-1 ml-2">Your Name</label>
-                            <input type="text" name="name" required placeholder="John Doe" class="w-full bg-white border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-cardBlueDark outline-none font-sans text-cardBlueDark shadow-sm">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase text-cardBlueDark mb-1 ml-2">Phone Number</label>
-                            <input type="tel" name="phone" required placeholder="+91 98765 43210" class="w-full bg-white border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-cardBlueDark outline-none font-sans text-cardBlueDark shadow-sm">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase text-cardBlueDark mb-1 ml-2">Requirement</label>
-                            <textarea name="message" rows="3" required placeholder="I need price for..." class="w-full bg-white border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-cardBlueDark outline-none font-sans text-cardBlueDark shadow-sm"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-cardBlueDark text-white font-bold py-4 rounded-2xl hover:bg-accentGold transition shadow-lg mt-2">Send Enquiry</button>
-                    </form>
-                </div>
-            </div>
+    <div class="section" id="contact">
+        <h2 class="section-title"><i class="fas fa-phone"></i> संपर्क आणि ठिकाण</h2>
+        <div style="background: white; padding: 30px; border-radius: 20px; box-shadow: var(--shadow);">
+            <p><i class="fas fa-map-marker-alt" style="color:var(--accent-green)"></i> कोरेगाव, महाराष्ट्र ४१५५०१</p>
+            <p><i class="fas fa-phone-alt" style="color:var(--accent-green)"></i> +91 9373242452</p>
+            <a href="https://maps.app.goo.gl/KB4kCv4tC2aQ7UUW6" target="_blank" style="color:#d9534f; font-weight:800; text-decoration:none; font-size: 1.2rem;">
+                <i class="fas fa-directions"></i> गुगल मॅपवर आम्हाला शोधा
+            </a>
         </div>
-    </section>
+    </div>
 
-    <footer class="text-center py-10 opacity-70">
-        <p class="font-sans text-cardBlueDark text-sm font-bold">© 2026 Bharat Bakers Needs & More. Satara.</p>
+    <footer>
+        <h2 style="color: white; font-size: 2.2rem; margin-bottom: 5px;">हॉटेल अन्नपूर्णा</h2>
+        <div class="social-icons">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-whatsapp"></i>
+        </div>
+        <p style="margin-top: 40px; font-size: 1rem; opacity: 0.7;">
+            © 2026 Hotel Annapurna | Designed by Aman
+        </p>
     </footer>
 
-    <div id="galleryModal" class="modal-hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
-        <div class="absolute inset-0 bg-cardBlueDark/90 backdrop-blur-md" onclick="toggleGallery()"></div>
-        
-        <div class="bg-white rounded-[2rem] shadow-2xl w-full max-w-5xl h-[85vh] relative z-10 flex flex-col overflow-hidden">
-            <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-20">
-                <div>
-                    <h3 class="font-heading text-2xl md:text-3xl text-cardBlueDark">Product Gallery</h3>
-                    <p class="text-sm text-gray-500 font-sans">Tap image to view full size.</p>
-                </div>
-                <button onclick="toggleGallery()" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-red-500 hover:text-white transition flex items-center justify-center text-gray-600">
-                    <i class="fa-solid fa-xmark text-xl"></i>
-                </button>
-            </div>
-
-            <div class="flex-1 overflow-y-auto p-6 bg-gray-50">
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    
-                    <div class="image-card aspect-square bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative cursor-pointer" onclick="openFullView('stand.jpg', 'Royal Stand')">
-                        <img src="stand.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="Stand">
-                        <div class="overlay-info absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 flex justify-between items-end translate-y-full transition duration-300">
-                            <span class="text-white font-bold text-sm">Royal Stand</span>
-                            <button onclick="event.stopPropagation(); shareItem('Royal Cake Stand')" class="text-white hover:text-accentGold transition"><i class="fa-solid fa-share-nodes text-lg"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="image-card aspect-square bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative cursor-pointer" onclick="openFullView('choco.jpg', 'Chocolate Molds')">
-                        <img src="choco.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="Molds">
-                        <div class="overlay-info absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 flex justify-between items-end translate-y-full transition duration-300">
-                            <span class="text-white font-bold text-sm">Chocolate Molds</span>
-                            <button onclick="event.stopPropagation(); shareItem('Chocolate Molds')" class="text-white hover:text-accentGold transition"><i class="fa-solid fa-share-nodes text-lg"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="image-card aspect-square bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative cursor-pointer" onclick="openFullView('biscoff.jpg', 'Lotus Biscoff')">
-                        <img src="biscoff.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="Biscoff">
-                        <div class="overlay-info absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 flex justify-between items-end translate-y-full transition duration-300">
-                            <span class="text-white font-bold text-sm">Lotus Biscoff</span>
-                            <button onclick="event.stopPropagation(); shareItem('Lotus Biscoff')" class="text-white hover:text-accentGold transition"><i class="fa-solid fa-share-nodes text-lg"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="image-card aspect-square bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative cursor-pointer" onclick="openFullView('dummies.jpg', 'Cake Dummies')">
-                        <img src="dummies.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="Dummies">
-                        <div class="overlay-info absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 flex justify-between items-end translate-y-full transition duration-300">
-                            <span class="text-white font-bold text-sm">Cake Dummies</span>
-                            <button onclick="event.stopPropagation(); shareItem('Cake Dummies')" class="text-white hover:text-accentGold transition"><i class="fa-solid fa-share-nodes text-lg"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="image-card aspect-square bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative cursor-pointer" onclick="openFullView('electric-wings.jpg', 'Electric Wings')">
-                        <img src="electric-wings.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="Wings">
-                        <div class="overlay-info absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 flex justify-between items-end translate-y-full transition duration-300">
-                            <span class="text-white font-bold text-sm">Electric Wings</span>
-                            <button onclick="event.stopPropagation(); shareItem('Electric Wings')" class="text-white hover:text-accentGold transition"><i class="fa-solid fa-share-nodes text-lg"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="image-card aspect-square bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative cursor-pointer" onclick="openFullView('moraz-crush.jpg', 'Moraz Crush')">
-                        <img src="moraz-crush.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="Moraz">
-                        <div class="overlay-info absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 flex justify-between items-end translate-y-full transition duration-300">
-                            <span class="text-white font-bold text-sm">Moraz Crush</span>
-                            <button onclick="event.stopPropagation(); shareItem('Moraz Crush')" class="text-white hover:text-accentGold transition"><i class="fa-solid fa-share-nodes text-lg"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="image-card aspect-square bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative cursor-pointer" onclick="openFullView('Sugar-moti.jpg', 'Edible Moti')">
-                        <img src="Sugar-moti.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="Moti">
-                        <div class="overlay-info absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 flex justify-between items-end translate-y-full transition duration-300">
-                            <span class="text-white font-bold text-sm">Edible Moti</span>
-                            <button onclick="event.stopPropagation(); shareItem('Edible Moti')" class="text-white hover:text-accentGold transition"><i class="fa-solid fa-share-nodes text-lg"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="image-card aspect-square bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative cursor-pointer" onclick="openFullView('Sugar-redheart.jpg', 'Heart Sprinkles')">
-                        <img src="Sugar-redheart.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="Heart">
-                        <div class="overlay-info absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 flex justify-between items-end translate-y-full transition duration-300">
-                            <span class="text-white font-bold text-sm">Heart Sprinkles</span>
-                            <button onclick="event.stopPropagation(); shareItem('Heart Sprinkles')" class="text-white hover:text-accentGold transition"><i class="fa-solid fa-share-nodes text-lg"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="image-card aspect-square bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative cursor-pointer" onclick="openFullView('Sugar-sev.jpg', 'Sugar Sev')">
-                        <img src="Sugar-sev.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="Sev">
-                        <div class="overlay-info absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 flex justify-between items-end translate-y-full transition duration-300">
-                            <span class="text-white font-bold text-sm">Sugar Sev</span>
-                            <button onclick="event.stopPropagation(); shareItem('Sugar Sev')" class="text-white hover:text-accentGold transition"><i class="fa-solid fa-share-nodes text-lg"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="image-card aspect-square bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative cursor-pointer" onclick="openFullView('toycars.jpg', 'Toy Cars')">
-                        <img src="toycars.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="Cars">
-                        <div class="overlay-info absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 flex justify-between items-end translate-y-full transition duration-300">
-                            <span class="text-white font-bold text-sm">Toy Cars</span>
-                            <button onclick="event.stopPropagation(); shareItem('Toy Cars')" class="text-white hover:text-accentGold transition"><i class="fa-solid fa-share-nodes text-lg"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="image-card aspect-square bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative cursor-pointer" onclick="openFullView('train-cake.jpg', 'Train Topper')">
-                        <img src="train-cake.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="Train">
-                        <div class="overlay-info absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 flex justify-between items-end translate-y-full transition duration-300">
-                            <span class="text-white font-bold text-sm">Train Topper</span>
-                            <button onclick="event.stopPropagation(); shareItem('Train Topper')" class="text-white hover:text-accentGold transition"><i class="fa-solid fa-share-nodes text-lg"></i></button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="p-4 border-t border-gray-100 bg-white text-center">
-                <a href="tel:9420487398" class="inline-block bg-cardBlueDark text-white px-8 py-3 rounded-full font-bold text-sm hover:bg-accentGold transition shadow-lg">
-                    <i class="fa-solid fa-phone mr-2"></i> Call to Order
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div id="fullImageView" class="modal-hidden fixed inset-0 z-[200] flex items-center justify-center bg-black/95 p-4">
-        <button onclick="closeFullView()" class="absolute top-6 right-6 text-white text-4xl hover:text-accentGold transition z-50">
-            ×
-        </button>
-        
-        <div class="relative w-full h-full flex flex-col items-center justify-center">
-            <img id="fullImage" src="" class="max-h-[85vh] max-w-full object-contain rounded-lg shadow-2xl border border-white/20">
-            <h3 id="fullImageTitle" class="mt-4 text-white font-heading text-2xl tracking-wide"></h3>
-        </div>
-    </div>
-
     <script>
-        // 1. Rotating Background
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            const bg = document.getElementById('rotating-bg');
-            if(bg) {
-                bg.style.transform = `translate(-50%, -50%) rotate(${scrollY * 0.5}deg)`;
+        function sendToWhatsapp() {
+            let name = document.getElementById('custName').value;
+            let date = document.getElementById('bookDate').value;
+            let time = document.getElementById('bookTime').value;
+            let guests = document.getElementById('guests').value;
+            let phone = "919373242452"; 
+
+            if(name == "" || date == "" || time == "") {
+                alert("कृपया सर्व माहिती (नाव, तारीख आणि वेळ) भरा!");
+                return;
             }
-        });
 
-        // 2. Toggle Gallery Modal (Grid)
-        function toggleGallery() {
-            const modal = document.getElementById('galleryModal');
-            if (modal.classList.contains('modal-hidden')) {
-                modal.classList.remove('modal-hidden');
-                modal.classList.add('modal-visible');
-                document.body.style.overflow = 'hidden';
-            } else {
-                modal.classList.remove('modal-visible');
-                modal.classList.add('modal-hidden');
-                document.body.style.overflow = 'auto';
-            }
-        }
+            let message = "🍱 *Hotel Annapurna Booking* %0A%0A" + 
+                          "*Name:* " + name + "%0A" + 
+                          "*Date:* " + date + "%0A" + 
+                          "*Time:* " + time + "%0A" + 
+                          "*Guests:* " + guests + "%0A%0A" +
+                          "कृपया आमची जागा बुक करा. धन्यवाद!";
 
-        // 3. FULL VIEW Logic
-        function openFullView(imageSrc, imageTitle) {
-            const fullView = document.getElementById('fullImageView');
-            const imgElement = document.getElementById('fullImage');
-            const titleElement = document.getElementById('fullImageTitle');
-
-            imgElement.src = imageSrc;
-            titleElement.innerText = imageTitle;
-
-            fullView.classList.remove('modal-hidden');
-            fullView.classList.add('modal-visible');
-        }
-
-        function closeFullView() {
-            const fullView = document.getElementById('fullImageView');
-            fullView.classList.remove('modal-visible');
-            fullView.classList.add('modal-hidden');
-        }
-
-        // 4. Share Functionality
-        function shareItem(itemName) {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Bharat Bakers Item',
-                    text: `Check out this ${itemName} at Bharat Bakers!`,
-                    url: window.location.href
-                })
-                .catch((error) => console.log('Error sharing', error));
-            } else {
-                alert(`Link copied for ${itemName}! Share it with friends.`);
-            }
+            window.open("https://wa.me/" + phone + "?text=" + message, '_blank');
         }
     </script>
+
 </body>
 </html>
